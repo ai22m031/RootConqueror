@@ -6,9 +6,9 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    LogicManager lm;
-    MusicManager mm;
-    UIManager uim;
+    public LogicManager lm;
+    public MusicManager mm;
+    public UIManager uim;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(1))
+        {
+            lm.chm.createConvexHull();
+        }
     }
 }
