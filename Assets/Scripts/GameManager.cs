@@ -23,9 +23,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0))
         {
-            lm.chm.createConvexHull();
+            Vector3 mousePos = Input.mousePosition;
+            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+            mousePos.z = 0;
+            DummyTower dT = Instantiate(lm.tm.dummyTowerPrefab, lm.tm.transform, true);
+            dT.transform.position= mousePos;
+            lm.tm.AddTower(dT);
+            lm.chm.CreateConvexHull();
         }
     }
 }

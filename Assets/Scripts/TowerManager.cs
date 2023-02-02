@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TowerManager : MonoBehaviour{
 
-    [SerializeField] private DummyTower _dummyTowerPrefab;
+     public DummyTower dummyTowerPrefab;
     // Start is called before the first frame update
 
     public List<DummyTower> towers;
@@ -17,17 +17,21 @@ public class TowerManager : MonoBehaviour{
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector3 mousePos = Input.mousePosition;
-            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-            mousePos.z = 0;
-
-            DummyTower dT = Instantiate(_dummyTowerPrefab, mousePos, Quaternion.identity);
-            towers.Add(dT);
-        }
+        
     }
 
+    public void AddTower(DummyTower tower){
+        towers.Add(tower);
+    }
+    
+    public List<Vector2> GetVector2s(){
+        List<Vector2> transforms = new List<Vector2>();
+        foreach (DummyTower dt in towers){
+            transforms.Add(dt.transform.position);
+        }
+        return transforms;
+    }
+    
     public List<Transform> GetTransforms(){
         List<Transform> transforms = new List<Transform>();
         foreach (DummyTower dt in towers){
