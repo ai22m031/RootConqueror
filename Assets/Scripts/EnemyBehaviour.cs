@@ -6,6 +6,7 @@ public class EnemyBehaviour : MonoBehaviour
 {
     public const float ATTACK_RANGE = 0.5f;
     public const float speed = 3f;
+    private int health = 3;
 
     public enum State {
         Searching,
@@ -38,10 +39,10 @@ public class EnemyBehaviour : MonoBehaviour
 
     void SearchEnemy()
     {
-        GameObject [] locations = GameManager.instance.lm.tm.getLocations();
-        Vector2 playerPos = GameManager.instance.lm._player.transform.position;
+        GameObject [] locations = GameManager.instance.tm.GetGameObjects();
+        Vector2 playerPos = GameManager.instance._player.transform.position;
         float minDis = Vector2.Distance(playerPos, this.transform.position);
-        GameObject closestLocation = GameManager.instance.lm._player;
+        GameObject closestLocation = GameManager.instance._player;
         foreach(GameObject loc in locations) {
             float newDis = Vector2.Distance(loc.transform.position, this.transform.position);
             if(newDis < minDis) {
@@ -61,10 +62,23 @@ public class EnemyBehaviour : MonoBehaviour
 
     void AttackEnemy()
     {
+        if(target == null) {
+            _state = State.Searching;
+            return;
+        }
         if(Time.time > attackCooldownTS) {
-            target.GetComponent<TowerScript>().TakeDamage(1);
+            target.GetComponent<AlliedObjectBehaviour>().TakeDamage(1);
+            _state = State.Searching;
             attackCooldownTS = Time.time + attackCooldown;
         }
-        _state = State.Searching;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if(health <= 0) {
+            GameManager.instance.em.RemoveEnemy(this);
+            Destroy(this.gameObject);
+        }
     }
 }

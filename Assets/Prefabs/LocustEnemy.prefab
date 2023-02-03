@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 2258969137491017430}
   - component: {fileID: 6575928343723691611}
   - component: {fileID: 3484801394527143668}
-  - component: {fileID: 6448521926842544252}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LocustEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
