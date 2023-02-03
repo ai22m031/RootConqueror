@@ -6,7 +6,7 @@ public class EnemyBehaviour : MonoBehaviour
 {
     public const float ATTACK_RANGE = 0.5f;
     public const float speed = 3f;
-    private int health = 3;
+    private int health = 6;
 
     public enum State {
         Searching,

@@ -10,9 +10,10 @@ public class TowerManager : MonoBehaviour
     // Start is called before the first frame update
 
     public List<TowerBehaviour> towers;
-    public TowerBehaviour towerPrefab;
+    public GameObject towerPrefab;
 
-    public int TowerAmount;
+    public int TowerAmount = 0;
+    public int towerCost = 0;
     void Start()
     {
         towers = new List<TowerBehaviour>();
@@ -21,10 +22,6 @@ public class TowerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (TowerAmount != towers.Count())
-        {
-            TowerAmount = towers.Count();
-        }
     }
 
     public GameObject [] GetGameObjects() {
@@ -37,8 +34,18 @@ public class TowerManager : MonoBehaviour
 
     public void AddTower(TowerBehaviour tower){
         towers.Add(tower);
+        TowerAmount++;
+        towerCost += tower.cost;
     }
     
+    public void UpdateCosts() {
+        if(towerCost > GameManager.instance.resourceManager.countActiveResources()) {
+            towersEnabled = false;
+        } else {
+            towersEnabled = true;
+        }
+    }
+
     public List<Vector2> GetVector2s(){
         List<Vector2> transforms = new List<Vector2>();
         foreach (TowerBehaviour dt in towers){
@@ -62,5 +69,10 @@ public class TowerManager : MonoBehaviour
     internal void RemoveTower(TowerBehaviour tower)
     {
         towers.Remove(tower);
+        TowerAmount--;
+        towerCost -= tower.cost;
+        GameManager.instance.chm.CreateConvexHull();
+        GameManager.instance.resourceManager.countActiveResources();
+        GameManager.instance.tm.UpdateCosts();
     }
 }
