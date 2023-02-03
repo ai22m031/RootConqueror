@@ -35,16 +35,17 @@ public class TowerBehaviour : AlliedObjectBehaviour
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, 1f);
         }
         if (minDis < ATTACK_RANGE) {
-            if (Time.time > attackCooldownTS && GameManager.instance.tm.towersEnabled) {
-                this.transform.localScale = new Vector3(0.15f, 0.2f, 1f);
-                GameObject newBullet = Instantiate(bullet, this.transform.position, Quaternion.identity);
-                newBullet.GetComponent<BulletBehaviour>().direction = (closestEnemy.transform.position - this.transform.position).normalized;
-                Destroy (newBullet, lifeTime);
-                attackCooldownTS = Time.time + attackCooldown;
-            }
-            else {
-                //
-                this.transform.localScale = new Vector3(0.15f + 0.05f * ((attackCooldownTS - Time.time) / attackCooldown), 0.2f, 1f);
+            if(GameManager.instance.tm.towersEnabled) {
+                if (Time.time > attackCooldownTS) {
+                    this.transform.localScale = new Vector3(0.15f, 0.2f, 1f);
+                    GameObject newBullet = Instantiate(bullet, this.transform.position, Quaternion.identity);
+                    newBullet.GetComponent<BulletBehaviour>().direction = (closestEnemy.transform.position - this.transform.position).normalized;
+                    Destroy (newBullet, lifeTime);
+                    attackCooldownTS = Time.time + attackCooldown;
+                }
+                else {
+                    this.transform.localScale = new Vector3(0.15f + 0.05f * ((attackCooldownTS - Time.time) / attackCooldown), 0.2f, 1f);
+                }
             }
         }
     }
