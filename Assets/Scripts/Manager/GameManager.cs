@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public EnemyManager em;
     [Header("Player")]
     public GameObject _player;
+    public GameObject _StartObject;
     // Start is called before the first frame update
     void Awake()
     {
@@ -24,6 +25,11 @@ public class GameManager : MonoBehaviour
             instance = this;
         else
             throw new Exception("Created another instance of singleton Game Manager");
+    }
+
+    void Start()
+    {
+        Instantiate(_StartObject, new Vector3(), Quaternion.identity);
     }
 
 
