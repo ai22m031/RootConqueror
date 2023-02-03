@@ -33,16 +33,54 @@ public class ConvexHullManager : MonoBehaviour{
             _polygonCollider.points = convexHullPoints.ToArray();
             _polygonCollider.enabled = true;
         }
+        //convexHullMesh = CreateUpdatedMesh(convexHullPoints);
     }
+/*
+    private Mesh CreateUpdatedMesh(List<Vector2> points) {
+
+        float minX = float.MinValue, maxX = float.MaxValue, minY = float.MinValue, maxY = float.MaxValue;
+        foreach (Vector2 point in points)
+        {  
+            minX = Mathf.Min(minX, point.x);
+            maxX = Mathf.Max(maxX, point.x);
+            minY = Mathf.Min(minY, point.y);
+            maxY = Mathf.Max(maxY, point.y);
+        }
+        float rangeX = maxX - minX;
+        float rangeY = maxY - minY;
+        // Add points to mesh before generation so that the texture is applied correctly
+        for(int i = (int) minX + 1; i < maxX; i++) {
+            for(int j = (int) minY + 1; j < maxY; j++) {
+                Vector2 toAdd = new Vector2(i, j);
+                if (IsPointInsideConvexHull(toAdd))
+                    points.Add(toAdd);
+            }
+        }
+        Mesh toReturn = CreateMeshFromPolygon(points);
+        Vector2[] uvs = new Vector2[toReturn.vertexCount];
+        for (int i = 0; i < toReturn.vertexCount; i++)
+        {
+            uvs[i] = new Vector2((points[i].x % 1f), (points[i].y % 1f));
+        }
+        toReturn.uv = uvs;
+        return toReturn;
+    }*/
 
     private Mesh CreateMeshFromPolygon(List<Vector2> points)
     {
         Mesh mesh = new Mesh();
 
+        // uvs work but they can't handle that the points are at random locations
+        // when you have a point at 13,9 and you give it the uv 1,0.5 and you have another point at 3,4 and you give it uv 0, 0.3
+        // the resulting texture will be stretched weirdly
+        // we should add more points to the mesh so that we can have uvs that make more sense (in a grid shape)
+
         Vector3[] vertices = new Vector3[points.Count];
+        //Vector2[] uvs = new Vector2[points.Count];
         for (int i = 0; i < vertices.Length; i++)
         {
             vertices[i] = new Vector3(points[i].x, points[i].y);
+            //uvs[i] = new Vector2((points[i].x % 1f), (points[i].y % 1f));
         }
 
         List<int> triangles = new List<int>();
@@ -55,6 +93,7 @@ public class ConvexHullManager : MonoBehaviour{
 
         mesh.vertices = vertices;
         mesh.triangles = triangles.ToArray();
+        //mesh.uv = uvs;
         
         CalculateCentroid(vertices);
         
