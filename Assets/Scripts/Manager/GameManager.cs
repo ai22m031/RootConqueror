@@ -18,6 +18,14 @@ public class GameManager : MonoBehaviour
     [Header("Player")]
     public GameObject _player;
     public GameObject _StartObject;
+    private DateTime _totaltime;
+    //getter setter for totaltime
+    public DateTime totaltime
+    {
+        get { return _totaltime; }
+        set { _totaltime = value; }
+    }
+    
     // Start is called before the first frame update
     void Awake()
     {
@@ -29,7 +37,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        
         Instantiate(_StartObject, new Vector3(), Quaternion.identity);
+        totaltime = DateTime.Now;
     }
 
 
@@ -41,6 +51,7 @@ public class GameManager : MonoBehaviour
         get { return Pause; }
         set { Pause = value; }
     }
+ 
 
     // Update is called once per frame
     void Update()
