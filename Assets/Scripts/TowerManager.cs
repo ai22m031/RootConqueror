@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TowerManager : MonoBehaviour
 {
+    bool towersEnabled { get; set; } = true;
     // Start is called before the first frame update
     void Start()
     {
