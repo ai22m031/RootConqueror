@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     private List<GameObject> enemies;
+    public int enemiesKilled = 0;
     void Start()
     {
         enemies = new List<GameObject>();
