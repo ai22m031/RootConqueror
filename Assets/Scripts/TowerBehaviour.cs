@@ -30,11 +30,21 @@ public class TowerBehaviour : AlliedObjectBehaviour
                 closestEnemy = enemy;
             }
         });
+        if(closestEnemy != null) {
+            Vector2 direction = (closestEnemy.transform.position - this.transform.position);
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, 1f);
+        }
         if (minDis < ATTACK_RANGE) {
             if (Time.time > attackCooldownTS) {
+                this.transform.localScale = new Vector3(0.15f, 0.2f, 1f);
                 GameObject newBullet = Instantiate(bullet, this.transform.position, Quaternion.identity);
                 newBullet.GetComponent<BulletBehaviour>().direction = (closestEnemy.transform.position - this.transform.position).normalized;
                 attackCooldownTS = Time.time + attackCooldown;
+            }
+            else {
+                this.transform.localScale = new Vector3(0.15f + 0.05f * ((attackCooldownTS - Time.time) / attackCooldown), 0.2f, 1f);
             }
         }
     }

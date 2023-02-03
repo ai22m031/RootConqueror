@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1566732275072724688}
   - component: {fileID: 1566732275072724690}
   - component: {fileID: 1566732275072724691}
+  - component: {fileID: -3166419560486939616}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Tower
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1566732275072724695}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2744351066699914618}
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 1873299945
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b6a96c7c65795c94abf54a62adbf5c38, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1f52dfc28d8910145970d11a1c5978b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,6 +123,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &-3166419560486939616
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566732275072724695}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b5c1b7d9976745b45a89f302f3ea20b1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &4628062535154231551
 PrefabInstance:
   m_ObjectHideFlags: 0
