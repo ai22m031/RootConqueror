@@ -18,10 +18,13 @@ public class EnemyBehaviour : MonoBehaviour
     private float attackCooldownTS = 0f;
     private float attackCooldown = 1f;
 
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         _state = State.Searching;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -29,6 +32,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         switch(_state) {
             case State.Searching:
+                animator.SetBool("walking_trigger", true); 
                 SearchEnemy();
                 break;
             case State.Attacking:
