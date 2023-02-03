@@ -94,9 +94,8 @@ public class EnemyBehaviour : MonoBehaviour
         health -= damage;
         if(health <= 0) {
             GameManager.instance.em.RemoveEnemy(this);
-            Destroy(this.gameObject);
             GameManager.instance.em.enemiesKilled++;
-
+            Destroy(this.gameObject);
         }
     }
 }
