@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public LogicManager lm;
     public MusicManager mm;
     public UIManager uim;
+    public ResourceManager resourceManager;
 
     // Start is called before the first frame update
     void Awake()

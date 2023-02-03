@@ -7,13 +7,13 @@ public class ConvexHullManager : MonoBehaviour{
     [SerializeField]
     private List<Vector2> convexHullPoints;
     private MeshFilter _meshFilter;
-    private MeshCollider _meshCollider;
+    private PolygonCollider2D _polygonCollider;
     private GameManager gm;
     private void Start(){
         convexHullPoints = new List<Vector2>();
         meshes = new List<Mesh>();
         _meshFilter = GetComponent<MeshFilter>();
-        _meshCollider = GetComponent<MeshCollider>();
+        _polygonCollider = GetComponent<PolygonCollider2D>();
         gm = GameManager.instance;
     }
 
@@ -23,6 +23,10 @@ public class ConvexHullManager : MonoBehaviour{
         Mesh convexHullMesh = CreateMeshFromPolygon(convexHullPoints);
         _meshFilter.mesh = convexHullMesh;
         meshes.Add(convexHullMesh);
+    
+        if (convexHullPoints.Count > 2) {
+            _polygonCollider.points = convexHullPoints.ToArray();
+        }
     }
 
     private Mesh CreateMeshFromPolygon(List<Vector2> points)
@@ -48,7 +52,6 @@ public class ConvexHullManager : MonoBehaviour{
 
         return mesh;
     }
-
     
 }
 
