@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private GameObject _miniMapIcon;
     public GameObject player;
+    public float viewDistance = 3;
+    public SpriteRenderer sr;
 
     float horizontal;
     float vertical;
@@ -17,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start(){
         Instantiate(_miniMapIcon, transform, true);
+        sr = GetComponentInChildren<SpriteRenderer>();
     }
     
     // Update is called once per frame

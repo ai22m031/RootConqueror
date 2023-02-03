@@ -4049,6 +4049,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _miniMapIcon: {fileID: 7302489247776604607, guid: 03e864991f7bf13429870ada02fa5bc0, type: 3}
   player: {fileID: 428056478}
+  viewDistance: 5
+  sr: {fileID: 0}
   runSpeed: 20
 --- !u!114 &428056482
 MonoBehaviour:
@@ -4909,6 +4911,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshes: []
   convexHullPoints: []
+  _prefabCentroid: {fileID: 3795726753264396271, guid: 6330150c2f1172f4fbd1d2807621751e, type: 3}
+  player: {fileID: 428056478}
 --- !u!1 &511858592
 GameObject:
   m_ObjectHideFlags: 0
@@ -8842,7 +8846,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10366,8 +10370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0a11ec36bf9c14c93697645c79ea1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _xTiles: 10
-  _yTiles: 10
+  _xTiles: 50
+  _yTiles: 50
   _tileWidth: 1.2
   _tileHeight: 1.2
   _tilePrefab: {fileID: 6717520154867885112, guid: 0e17eb8a97695914db92e8f7682f1498, type: 3}
@@ -13804,9 +13808,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 428056478}
   offset: {x: 0, y: 0, z: 0}
-  _camMode: 0
+  _camMode: 1
   _centerPont: {fileID: 2071413102}
   miniMapCam: {fileID: 757196700}
+  maxDistance: 150
+  camModifcation: 0.01
 --- !u!1 &1233451139
 GameObject:
   m_ObjectHideFlags: 0

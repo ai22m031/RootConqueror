@@ -14,7 +14,9 @@
         <e p="Fonts" t="Include" />
         <e p="MapManager.cs" t="Include" />
         <e p="Materials" t="Include" />
-        <e p="Prefabs" t="Include" />
+        <e p="Prefabs" t="Include">
+          <e p="MiniMap" t="Include" />
+        </e>
         <e p="Scenes" t="Include" />
         <e p="Scripts" t="Include">
           <e p="ConvexHullManager.cs" t="Include" />
@@ -80,6 +82,7 @@
             <e p="EmojiOne.json" t="Include" />
           </e>
         </e>
+        <e p="Texture" t="Include" />
       </e>
       <e p="DocCodeExamples.csproj" t="IncludeRecursive" />
       <e p="Library" t="Include">

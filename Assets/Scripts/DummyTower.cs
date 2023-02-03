@@ -18,4 +18,8 @@ public class DummyTower : MonoBehaviour{
         Instantiate(_miniMapIcon, transform);
     }
 
+    public float GetAttackRadius(){
+        return 3f;
+    }
+
 }

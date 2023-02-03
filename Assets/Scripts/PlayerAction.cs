@@ -31,6 +31,6 @@ public class PlayerAction : MonoBehaviour
         }
         if( Input.GetMouseButtonDown(1)){
             Debug.Log("Right Click");
-            }
+        }
     }
 }

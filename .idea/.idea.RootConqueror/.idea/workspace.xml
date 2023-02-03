@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f43c9bc-a193-4a64-8606-e5d05211520e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/MiniMap/ConvexHullCentroid.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/MiniMap/ConvexHullCentroid.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RootConqueror/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RootConqueror/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RootConqueror/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RootConqueror/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RootConqueror/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RootConqueror/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CameraManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CameraManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/DummyTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/DummyTower.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ConvexHullManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ConvexHullManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DummyTower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DummyTower.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerAction.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,13 +27,19 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://S:/Projects/Unity/RootConqueror/Assets/Scripts/LogicManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/MapManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://S:/Projects/Unity/RootConqueror/Assets/Scripts/LogicManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://S:/Projects/Unity/RootConqueror/Assets/Scripts/TowerManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DummyTower.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://S:/Projects/Unity/RootConqueror/Assets/Scripts/LogicManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MapManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://S:/Projects/Unity/RootConqueror/Assets/Scripts/LogicManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://S:/Projects/Unity/RootConqueror/Assets/Scripts/TowerManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://S:/Projects/Unity/RootConqueror/Assets/Scripts/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://S:/Projects/Unity/RootConqueror/Assets/Scripts/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -44,10 +55,11 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/TowerManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LogicManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/ConvexHullManager.cs" />
       <option value="$PROJECT_DIR$/Assets/MapManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/DummyTower.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ConvexHullManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerAction.cs" />
       <option value="$PROJECT_DIR$/Assets/CameraManager.cs" />
     </changedPaths>
   </component>
@@ -76,10 +88,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="10100">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="19832">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="10100" />
+      <option name="pid" value="19832" />
       <option name="selectedOptions">
         <list />
       </option>
