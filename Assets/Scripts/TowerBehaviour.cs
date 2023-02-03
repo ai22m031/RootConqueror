@@ -18,7 +18,7 @@ public class TowerBehaviour : AlliedObjectBehaviour
     {
         float minDis = float.MaxValue;
         GameObject closestEnemy = null;
-        GameManager.instance.lm.em.GetEnemies().ForEach(enemy => {
+        GameManager.instance.em.GetEnemies().ForEach(enemy => {
             float newDis = Vector2.Distance(enemy.transform.position, this.transform.position);
             if(newDis < minDis) {
                 minDis = newDis;
@@ -39,7 +39,7 @@ public class TowerBehaviour : AlliedObjectBehaviour
         health -= damage;
         if (health <= 0)
         {
-            GameManager.instance.lm.tm.RemoveTower(this);
+            GameManager.instance.tm.RemoveTower(this);
             Destroy(gameObject);
         }
     }

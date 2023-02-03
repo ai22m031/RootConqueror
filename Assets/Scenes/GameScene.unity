@@ -237,7 +237,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1551396194}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &50793038
 MonoBehaviour:
@@ -4968,7 +4968,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1551396194}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &510141712
 MeshRenderer:
@@ -7711,11 +7711,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4d690f990f4564387617ef1cd67d1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lm: {fileID: 937739001}
   mm: {fileID: 50793038}
   uim: {fileID: 998307182}
   resourceManager: {fileID: 1106155261}
-  Player: {fileID: 0}
+  chm: {fileID: 510141714}
+  tm: {fileID: 1212007753}
+  em: {fileID: 2139479143}
+  _player: {fileID: 428056478}
 --- !u!1 &679610157
 GameObject:
   m_ObjectHideFlags: 0
@@ -11086,54 +11088,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &937738999
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 937739000}
-  - component: {fileID: 937739001}
-  m_Layer: 0
-  m_Name: LogicManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &937739000
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937738999}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1551396194}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &937739001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937738999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1924292232c58054a91644058fb6df85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chm: {fileID: 510141714}
-  tm: {fileID: 1212007753}
-  em: {fileID: 2139479143}
-  _player: {fileID: 428056478}
 --- !u!1 &939340874
 GameObject:
   m_ObjectHideFlags: 0
@@ -11815,7 +11769,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1551396194}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &998307182
 MonoBehaviour:
@@ -13191,7 +13145,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1551396194}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1106155261
 MonoBehaviour:
@@ -13907,7 +13861,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1551396194}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1212007753
 MonoBehaviour:
@@ -13923,6 +13877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towers: []
   towerPrefab: {fileID: 1566732275072724690, guid: 87afe431f4ea36746b70cfd8a2e1ee4e, type: 3}
+  TowerAmount: 0
 --- !u!1 &1222319116
 GameObject:
   m_ObjectHideFlags: 0
@@ -17826,7 +17781,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 677945872}
-  - {fileID: 937739000}
   - {fileID: 50793037}
   - {fileID: 998307181}
   - {fileID: 1212007752}
@@ -25064,7 +25018,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1551396194}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2139479143
 MonoBehaviour:

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TowerManager : MonoBehaviour
@@ -10,7 +11,8 @@ public class TowerManager : MonoBehaviour
 
     public List<TowerBehaviour> towers;
     public TowerBehaviour towerPrefab;
-    
+
+    public int TowerAmount;
     void Start()
     {
         towers = new List<TowerBehaviour>();
@@ -19,7 +21,10 @@ public class TowerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (TowerAmount != towers.Count())
+        {
+            TowerAmount = towers.Count();
+        }
     }
 
     public GameObject [] GetGameObjects() {

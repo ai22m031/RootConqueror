@@ -21,7 +21,7 @@ public class PlayerAction : MonoBehaviour
     void Start()
     {
         this.health = 5;
-        Player = this;
+        Player = GameManager.instance._player.GetComponent<PlayerAction>();
     }
 
     // Update is called once per frame
@@ -75,12 +75,12 @@ public class PlayerAction : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1) || Input.GetButtonDown("Jump"))
         {
-            Vector3 playerPosition = GameManager.instance.lm._player.transform.position;
+            Vector3 playerPosition = GameManager.instance._player.transform.position;
 
-            TowerBehaviour dT = Instantiate(GameManager.instance.lm.tm.towerPrefab, GameManager.instance.lm.tm.transform, true);
+            TowerBehaviour dT = Instantiate(GameManager.instance.tm.towerPrefab, GameManager.instance.tm.transform, true);
             dT.transform.position = playerPosition;
-            GameManager.instance.lm.tm.AddTower(dT);
-            GameManager.instance.lm.chm.CreateConvexHull();
+            GameManager.instance.tm.AddTower(dT);
+            GameManager.instance.chm.CreateConvexHull();
             return true;
         }
         return false;

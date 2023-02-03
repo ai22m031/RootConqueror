@@ -6,12 +6,18 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public LogicManager lm;
+
+    //Unity Editor Header 
+    [Header("Managers")]
     public MusicManager mm;
     public UIManager uim;
     public ResourceManager resourceManager;
-    public PlayerAction Player;
-    
+    public ConvexHullManager chm;
+    public TowerManager tm;
+    public EnemyManager em;
+
+    [Header("Player")]
+    public GameObject _player;
     // Start is called before the first frame update
     void Awake()
     {

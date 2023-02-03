@@ -33,6 +33,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Set TowerAmount to TowerManager AMount
+        text_towerAmount.text = GameManager.instance.tm.TowerAmount.ToString();
     }
 }

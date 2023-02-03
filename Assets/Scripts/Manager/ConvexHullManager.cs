@@ -19,7 +19,7 @@ public class ConvexHullManager : MonoBehaviour{
 
     
     public void CreateConvexHull(){
-        convexHullPoints = QuickHull.GetConvexHull(gm.lm.tm.GetVector2s());
+        convexHullPoints = QuickHull.GetConvexHull(gm.tm.GetVector2s());
         Mesh convexHullMesh = CreateMeshFromPolygon(convexHullPoints);
         _meshFilter.mesh = convexHullMesh;
         meshes.Add(convexHullMesh);
