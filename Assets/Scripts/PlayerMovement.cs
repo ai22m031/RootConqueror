@@ -38,4 +38,9 @@ public class PlayerMovement : MonoBehaviour
             player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(mousePosition.x, mousePosition.y, 0), runSpeed * Time.deltaTime);
         }
     }
+
+    public Vector3 PlayerPosition()
+    {
+        return player.transform.position;
+    }
 }
