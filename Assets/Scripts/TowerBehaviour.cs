@@ -39,6 +39,7 @@ public class TowerBehaviour : AlliedObjectBehaviour
         health -= damage;
         if (health <= 0)
         {
+            GameManager.instance.lm.tm.RemoveTower(this);
             Destroy(gameObject);
         }
     }
