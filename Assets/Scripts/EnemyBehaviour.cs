@@ -56,6 +56,12 @@ public class EnemyBehaviour : MonoBehaviour
                 
                 break;
             case State.Attacking:
+                //check distance to player
+                if (Vector2.Distance(target.transform.position, this.transform.position) > ATTACK_RANGE)
+                {
+                    _state = State.Searching;
+                    break;
+                }
                 AttackEnemy();
                 animator.SetBool("walking", false);
 

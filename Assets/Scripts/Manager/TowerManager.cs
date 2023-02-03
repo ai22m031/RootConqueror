@@ -39,6 +39,11 @@ public class TowerManager : MonoBehaviour
         TowerAmount--;
         towerCost -= tower.cost;
         RefreshTowers();
+        if(TowerAmount < 3)
+        {
+            //EndGame
+            GameManager.instance.EndGame();
+        }
     }
 
     public bool CanPlaceTower(GameObject sobject)

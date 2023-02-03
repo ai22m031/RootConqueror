@@ -13229,6 +13229,7 @@ MonoBehaviour:
   text_dsTime: {fileID: 1407209399}
   text_dsTowers: {fileID: 397175548}
   text_towerAmount: {fileID: 1691372104}
+  EndScreen: {fileID: 1838207176}
   Healthbar: {fileID: 636725498}
 --- !u!1 &1007550957
 GameObject:

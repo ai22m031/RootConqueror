@@ -37,6 +37,12 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void EndGame()
+    {
+        UnityEngine.Debug.Log("Player died");
+        uim.EndScreen.SetActive(true);
+        pause = true;
+    }
     void Start()
     {
         

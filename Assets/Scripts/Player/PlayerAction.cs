@@ -81,11 +81,7 @@ public class PlayerAction : AlliedObjectBehaviour{
         health -= damage;
         if (health <= 0)
         {
-            UnityEngine.Debug.Log("Player died");
-            Time.timeScale = 0f;
-            EndScreen.SetActive(true);
-            //set pause true
-            GameManager.instance.pause = true;
+            GameManager.instance.EndGame();
         }
     }
 

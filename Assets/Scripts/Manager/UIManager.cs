@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI text_dsTowers;
 
     public TextMeshProUGUI text_towerAmount;
+    public GameObject EndScreen;
 
     //public Image UI
     public UnityEngine.UI.Image Healthbar;
