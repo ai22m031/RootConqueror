@@ -6,7 +6,8 @@ public class EnemyBehaviour : MonoBehaviour
 {
     public const float ATTACK_RANGE = 0.5f;
     public const float speed = 3f;
-    private int health = 3;
+    public GameObject Visual;
+    private int health = 6;
 
     public enum State {
         Searching,
@@ -18,13 +19,12 @@ public class EnemyBehaviour : MonoBehaviour
     private float attackCooldownTS = 0f;
     private float attackCooldown = 1f;
 
-    private Animator animator;
-
+    public Animator animator;
+    
     // Start is called before the first frame update
     void Start()
     {
         _state = State.Searching;
-        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -32,11 +32,21 @@ public class EnemyBehaviour : MonoBehaviour
     {
         switch(_state) {
             case State.Searching:
-                animator.SetBool("walking_trigger", true); 
                 SearchEnemy();
+                //rotate towards target
+                if (target == null) return; 
+                Vector2 direction = (target.transform.position - this.transform.position);
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                Visual.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, 1f);
+                
+                animator.SetBool("walking", true);
+                
                 break;
             case State.Attacking:
                 AttackEnemy();
+                animator.SetBool("walking", false);
+
                 break;
         }
     }
@@ -54,9 +64,10 @@ public class EnemyBehaviour : MonoBehaviour
                 closestLocation = loc;
             }
         }
-        if(minDis < ATTACK_RANGE) {
+        target = closestLocation;
+
+        if (minDis < ATTACK_RANGE) {
             _state = State.Attacking;
-            target = closestLocation;
         } else {
             Vector2 direction = (closestLocation.transform.position - this.transform.position);
             direction.Normalize();

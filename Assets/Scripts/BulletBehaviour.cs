@@ -20,9 +20,7 @@ public class BulletBehaviour : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collision");
         if(collision.gameObject.tag == "Enemy") {
-            Debug.Log("Destruction");
             collision.gameObject.GetComponent<EnemyBehaviour>().TakeDamage(1);
             Destroy(this.gameObject);
         }

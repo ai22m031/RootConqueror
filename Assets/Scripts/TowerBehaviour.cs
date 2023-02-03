@@ -6,11 +6,16 @@ public class TowerBehaviour : AlliedObjectBehaviour
 {
     private const float ATTACK_RANGE = 4f;
     private float attackCooldown = 0.3f, attackCooldownTS = 0f;
+    public int cost = 1;
     public GameObject bullet;
     // Start is called before the first frame update
     void Start()
     {
         this.health = 5;
+        GameManager.instance.tm.AddTower(this);
+        GameManager.instance.chm.CreateConvexHull();
+        GameManager.instance.resourceManager.countActiveResources();
+        GameManager.instance.tm.UpdateCosts();
     }
 
     // Update is called once per frame
