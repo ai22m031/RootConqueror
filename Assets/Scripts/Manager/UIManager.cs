@@ -36,4 +36,12 @@ public class UIManager : MonoBehaviour
         //Set TowerAmount to TowerManager AMount
         text_towerAmount.text = GameManager.instance.tm.TowerAmount.ToString();
     }
+
+    public void updateCurrentEnergy(int currentEnergy) {
+        text_currentEnergy.text = currentEnergy.ToString();
+    }
+
+    public void updateMaxEnergy(int maxEnergy) {
+        text_maxEnergy.text = maxEnergy.ToString();
+    }
 }

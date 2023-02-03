@@ -19,6 +19,8 @@ public class ResourceSpawner : MonoBehaviour
     {
         resourceManager = GameManager.instance.resourceManager;    
         spawn();
+        resourceManager.countActiveResources();
+        resourceManager.countMaxResources();
     }
 
     // Update is called once per frame

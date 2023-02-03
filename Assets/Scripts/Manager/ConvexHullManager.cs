@@ -53,6 +53,16 @@ public class ConvexHullManager : MonoBehaviour{
 
         return mesh;
     }
+
+    public bool isPointInsideConvexHull(Vector2 point)
+    {
+        if (convexHullPoints.Count < 3)
+        {
+            return false;
+        }
+
+        return _polygonCollider.OverlapPoint(point);
+    }
     
 }
 
