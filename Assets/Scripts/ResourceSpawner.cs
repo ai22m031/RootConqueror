@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class ResourceSpawner : MonoBehaviour
 {
-    public static int RESOURCE_COUNT = 10;
-    public static float RESOURCE_RADIUS = 10.0f;
+    [Range(1, 10)]
+    public int RESOURCE_COUNT = 10;
+    
+    [Range(1.0f, 10.0f)]
+    public float RESOURCE_RADIUS = 10.0f;
 
     public GameObject resourcePrefab;
     
@@ -33,7 +36,7 @@ public class ResourceSpawner : MonoBehaviour
 
     private GameObject intantiateResource() 
     {
-        return Instantiate(resourcePrefab, generateRandomVector(), Quaternion.identity);
+        return Instantiate(resourcePrefab, generateRandomVector(), Quaternion.identity, this.transform);
     }
 
     private Vector3 generateRandomVector() 
