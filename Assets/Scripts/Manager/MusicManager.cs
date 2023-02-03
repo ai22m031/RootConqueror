@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public AudioClip intro;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        audioSource.PlayOneShot(intro);
+        audioSource.PlayScheduled(AudioSettings.dspTime + intro.length);
     }
 }
