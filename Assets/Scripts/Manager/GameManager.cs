@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public MusicManager mm;
     public UIManager uim;
     public ResourceManager resourceManager;
+    public ConvexHullManager convexHullManager;
     public PlayerAction Player;
     
     // Start is called before the first frame update

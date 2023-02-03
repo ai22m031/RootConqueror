@@ -81,6 +81,7 @@ public class PlayerAction : MonoBehaviour
             dT.transform.position = playerPosition;
             GameManager.instance.lm.tm.AddTower(dT);
             GameManager.instance.lm.chm.CreateConvexHull();
+            GameManager.instance.resourceManager.countActiveResources();
             return true;
         }
         return false;
