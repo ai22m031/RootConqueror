@@ -4809,7 +4809,7 @@ GameObject:
   - component: {fileID: 510141713}
   - component: {fileID: 510141712}
   - component: {fileID: 510141711}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ConvexHullManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8846,7 +8846,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1536
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: f0076a1216c7e4743b216e5ac8aa1b64, type: 2}
   m_TargetDisplay: 0
@@ -24347,7 +24347,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 567
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
