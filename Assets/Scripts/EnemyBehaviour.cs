@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    public const float ATTACK_RANGE = 0.5f;
+    public float ATTACK_RANGE = 0.5f;
     public const float speed = 3f;
     public GameObject Visual;
     private int health = 6;

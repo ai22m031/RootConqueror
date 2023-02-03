@@ -13,6 +13,7 @@ public class PlayerAction : AlliedObjectBehaviour
     public float runSpeed = 20.0f;
     //load script into script
     private PlayerAction Player;
+    public GameObject EndScreen;
 
     public enum PlayerState
     {
@@ -21,11 +22,11 @@ public class PlayerAction : AlliedObjectBehaviour
     }
     private PlayerState _state;
     private float plantCooldown = 3f, plantTimeStamp = 0f;
-
+    public int maxHealth;
     // Start is called before the first frame update
     void Start()
     {
-        this.health = 5;
+        this.health = maxHealth;
         Player = GameManager.instance._player.GetComponent<PlayerAction>();
         _state = PlayerState.Moving;
     }
@@ -50,6 +51,7 @@ public class PlayerAction : AlliedObjectBehaviour
 
     }
 
+    
     public override void TakeDamage(int damage)
     {
         Debug.Log("Player took " + damage + " damage");
@@ -58,6 +60,9 @@ public class PlayerAction : AlliedObjectBehaviour
         {
             Debug.Log("Player died");
             Time.timeScale = 0f;
+            EndScreen.SetActive(true);
+            //set pause true
+            GameManager.instance.pause = true;
         }
     }
 
