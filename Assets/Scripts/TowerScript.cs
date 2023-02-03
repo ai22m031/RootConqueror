@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LogicManager : MonoBehaviour
+public class TowerScript : MonoBehaviour
 {
-    public ConvexHullManager chm;
-    public TowerManager tm;
-    public GameObject _player;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +14,10 @@ public class LogicManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void TakeDamage(int damage)
+    {
+        Debug.Log("Tower took " + damage + " damage");
     }
 }

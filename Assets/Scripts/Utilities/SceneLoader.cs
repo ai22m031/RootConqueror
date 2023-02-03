@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LogicManager : MonoBehaviour
+public class SceneLoader : MonoBehaviour
 {
-    public ConvexHullManager chm;
-    public TowerManager tm;
-    public GameObject _player;
-    // Start is called before the first frame update
+    // Load Scene by Name
+    public void LoadScene(string sceneName)
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+    }
+
+
     void Start()
     {
         
