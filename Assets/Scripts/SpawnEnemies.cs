@@ -6,6 +6,8 @@ public class SpawnEnemies : MonoBehaviour
 {
     public Vector2 spawnCenter;
     public GameObject enemyPrefab;
+    //GameObject array enemyPrefabs
+    public List<GameObject> enemyPrefabs = new List<GameObject>();
     float spawnRadius = 15f;
     float spawnRate = 1f;
     float timeStamp = 0f;
@@ -23,7 +25,8 @@ public class SpawnEnemies : MonoBehaviour
     {
         if(Time.time > timeStamp) {
             Vector2 spawnPos = new Vector2(spawnCenter.x + spawnRadius * Mathf.Cos(currSpawnAngle), spawnCenter.y + spawnRadius * Mathf.Sin(currSpawnAngle));
-            GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+            GameObject enemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Count)], spawnPos, Quaternion.identity);
+            //GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
             GameManager.instance.em.AddEnemy(enemy);
             currSpawnAngle += angle * Random.Range(1f, 3f);
             timeStamp = Time.time + spawnRate;

@@ -23,6 +23,9 @@ public class PlayerAction : AlliedObjectBehaviour
     private PlayerState _state;
     private float plantCooldown = 3f, plantTimeStamp = 0f;
     public int maxHealth;
+
+    public ParticleSystem NumberAdd;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,13 +53,14 @@ public class PlayerAction : AlliedObjectBehaviour
             Player.Move();
         }
         //check if player is in ConvexHull with isPointInsideConvexHull from ConvexHullManager
-        if (GameManager.instance.chm.isPointInsideConvexHull(this.transform.position))
+        if (health < maxHealth && GameManager.instance.chm.isPointInsideConvexHull(this.transform.position))
         {
             //add 1 health each second
             deltaTime += Time.deltaTime;
             if (deltaTime > 1)
             {
                 this.health++;
+                NumberAdd.Play();
                 deltaTime = 0;
             }
         }

@@ -4421,6 +4421,7 @@ Transform:
   m_Children:
   - {fileID: 2145661421}
   - {fileID: 3018090793624680180}
+  - {fileID: 1993099405}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4439,6 +4440,7 @@ MonoBehaviour:
   runSpeed: 5
   EndScreen: {fileID: 1838207176}
   maxHealth: 5
+  NumberAdd: {fileID: 1993099407}
 --- !u!1 &455032086
 GameObject:
   m_ObjectHideFlags: 0
@@ -20166,7 +20168,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnCenter: {x: 0, y: 0}
-  enemyPrefab: {fileID: 2118051511749807478, guid: e55189058a464284aab4bc433b6a6902, type: 3}
+  enemyPrefab: {fileID: 2118051511749807478, guid: 053639b905822814597717afdb75b850, type: 3}
+  enemyPrefabs:
+  - {fileID: 2118051511749807478, guid: e55189058a464284aab4bc433b6a6902, type: 3}
+  - {fileID: 2118051511749807478, guid: 053639b905822814597717afdb75b850, type: 3}
 --- !u!1 &1682086630
 GameObject:
   m_ObjectHideFlags: 0
@@ -24338,6 +24343,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1993099405 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9007750326672854947, guid: 6a33f368857188e4d9886a5a995b5725, type: 3}
+  m_PrefabInstance: {fileID: 9007750325225047854}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1993099407 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9007750326672854945, guid: 6a33f368857188e4d9886a5a995b5725, type: 3}
+  m_PrefabInstance: {fileID: 9007750325225047854}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1996712355
 GameObject:
   m_ObjectHideFlags: 0
@@ -26877,3 +26892,60 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &9007750325225047854
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 428056480}
+    m_Modifications:
+    - target: {fileID: 9007750326672854946, guid: 6a33f368857188e4d9886a5a995b5725, type: 3}
+      propertyPath: m_Name
+      value: HealthParticles
+      objectReference: {fileID: 0}
+    - target: {fileID: 9007750326672854947, guid: 6a33f368857188e4d9886a5a995b5725, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9007750326672854947, guid: 6a33f368857188e4d9886a5a995b5725, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9007750326672854947, guid: 6a33f368857188e4d9886a5a995b5725, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 9007750326672854947, guid: 6a33f368857188e4d9886a5a995b5725, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9007750326672854947, guid: 6a33f368857188e4d9886a5a995b5725, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9007750326672854947, guid: 6a33f368857188e4d9886a5a995b5725, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9007750326672854947, guid: 6a33f368857188e4d9886a5a995b5725, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9007750326672854947, guid: 6a33f368857188e4d9886a5a995b5725, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9007750326672854947, guid: 6a33f368857188e4d9886a5a995b5725, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 9007750326672854947, guid: 6a33f368857188e4d9886a5a995b5725, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9007750326672854947, guid: 6a33f368857188e4d9886a5a995b5725, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6a33f368857188e4d9886a5a995b5725, type: 3}

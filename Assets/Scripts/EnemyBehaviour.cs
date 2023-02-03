@@ -27,10 +27,21 @@ public class EnemyBehaviour : MonoBehaviour
     {
         _state = State.Searching;
     }
-
+    bool isDead;
     // Update is called once per frame
     void Update()
     {
+        if (isDead)
+        {
+            animator.SetBool("isDead", true);
+            //check if animator is running
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("EnemyDeath") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+            {
+                Destroy(this.gameObject);
+            }
+
+            return;
+        }    
         switch(_state) {
             case State.Searching:
                 SearchEnemy();
@@ -93,9 +104,9 @@ public class EnemyBehaviour : MonoBehaviour
     {
         health -= damage;
         if(health <= 0) {
+            isDead = true;
             GameManager.instance.em.RemoveEnemy(this);
             GameManager.instance.em.enemiesKilled++;
-            Destroy(this.gameObject);
         }
     }
 }
