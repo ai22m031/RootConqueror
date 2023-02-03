@@ -6,6 +6,8 @@ public class EnemyBehaviour : MonoBehaviour
 {
     public const float ATTACK_RANGE = 0.5f;
     public const float speed = 3f;
+    private int health = 3;
+    private float attackCooldown = 0.5f, attackCooldownTS = 0f;
 
     public enum State {
         Searching,
@@ -61,10 +63,22 @@ public class EnemyBehaviour : MonoBehaviour
 
     void AttackEnemy()
     {
+        if(target == null) {
+            _state = State.Searching;
+            return;
+        }
         if(Time.time > attackCooldownTS) {
-            target.GetComponent<TowerScript>().TakeDamage(1);
+            target.GetComponent<AlliedObjectBehaviour>().TakeDamage(1);
+            _state = State.Searching;
             attackCooldownTS = Time.time + attackCooldown;
         }
-        _state = State.Searching;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if(health <= 0) {
+            Destroy(this.gameObject);
+        }
     }
 }

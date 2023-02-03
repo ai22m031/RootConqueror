@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerManager : MonoBehaviour{
-
-     public DummyTower dummyTowerPrefab;
+public class TowerManager : MonoBehaviour
+{
+    bool towersEnabled { get; set; } = true;
     // Start is called before the first frame update
 
     public List<DummyTower> towers;
