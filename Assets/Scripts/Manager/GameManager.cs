@@ -53,9 +53,11 @@ public class GameManager : MonoBehaviour
 
 
 
-    //getter setter for pause
     public bool pause;
-
+    public void SetPause(bool x)
+    {
+        pause = x;
+    }
  
 
     // Update is called once per frame

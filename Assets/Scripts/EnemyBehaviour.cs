@@ -57,6 +57,8 @@ public class EnemyBehaviour : MonoBehaviour
                 break;
             case State.Attacking:
                 //check distance to player
+                if (target == null) return;
+
                 if (Vector2.Distance(target.transform.position, this.transform.position) > ATTACK_RANGE)
                 {
                     _state = State.Searching;
@@ -74,20 +76,20 @@ public class EnemyBehaviour : MonoBehaviour
         GameObject [] towers = GameManager.instance.tm.towers.ToArray();
         Vector2 playerPos = GameManager.instance._player.transform.position;
         float minDis = Vector2.Distance(playerPos, this.transform.position);
-        GameObject closestLocation = GameManager.instance._player;
+        GameObject closestTarget = GameManager.instance._player;
         foreach(GameObject tower in towers) {
             float newDis = Vector2.Distance(tower.transform.position, this.transform.position);
             if(newDis < minDis) {
                 minDis = newDis;
-                closestLocation = tower;
+                closestTarget = tower;
             }
         }
-        target = closestLocation;
+        target = closestTarget;
 
         if (minDis < ATTACK_RANGE) {
             _state = State.Attacking;
         } else {
-            Vector2 direction = (closestLocation.transform.position - this.transform.position);
+            Vector2 direction = (target.transform.position - this.transform.position);
             direction.Normalize();
             this.transform.Translate(direction * speed * Time.deltaTime);
         }

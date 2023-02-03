@@ -41,7 +41,6 @@ public class TowerManager : MonoBehaviour
         RefreshTowers();
         if(TowerAmount < 3)
         {
-            //EndGame
             GameManager.instance.EndGame();
         }
     }

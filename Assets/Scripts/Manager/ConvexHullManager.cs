@@ -21,7 +21,43 @@ public class ConvexHullManager : MonoBehaviour{
         _polygonCollider = GetComponent<PolygonCollider2D>();
         gm = GameManager.instance;
     }
+    void Update()
+    {
+        DrawLines();
+    }
+    //void to draw lines from player to current convexhull with instantiate linerenderer
+    private void DrawLines()
+    {
+        GameObject player = gm._player;
+        //get player position
+        Vector2 playerPosition = player.transform.position;
 
+        //get the 2 nearest convexhull points from player
+        Vector2 nearestPoint = convexHullPoints[0];
+        Vector2 secondNearestPoint = convexHullPoints[1];
+        float nearestDistance = Vector2.Distance(playerPosition, nearestPoint);
+        float secondNearestDistance = Vector2.Distance(playerPosition, secondNearestPoint);
+        for (int i = 0; i < convexHullPoints.Count; i++)
+        {
+            float distance = Vector2.Distance(playerPosition, convexHullPoints[i]);
+            if (distance < nearestDistance)
+            {
+                secondNearestPoint = nearestPoint;
+                secondNearestDistance = nearestDistance;
+                nearestPoint = convexHullPoints[i];
+                nearestDistance = distance;
+            }
+        }
+        LineRenderer lr = player.GetComponent<PlayerAction>().lr;
+        LineRenderer lr2 = player.GetComponent<PlayerAction>().lr2; 
+
+        //set lr from player to nearest convexhull point 
+        //then set lr2 from player to second nearest convexhull point
+        lr.SetPosition(0, playerPosition);
+        lr.SetPosition(1, nearestPoint);
+        lr2.SetPosition(0, playerPosition);
+        lr2.SetPosition(1, secondNearestPoint);
+    }
 
     public void CreateConvexHull(){
         List<Vector2> vec2 = new List<Vector2>();

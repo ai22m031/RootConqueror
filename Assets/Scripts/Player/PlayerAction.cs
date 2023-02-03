@@ -11,7 +11,8 @@ public class PlayerAction : AlliedObjectBehaviour{
 
     Vector3 mousePosition;
     private GameObject player;
-
+    public LineRenderer lr;
+    public LineRenderer lr2;
     public float runSpeed = 20.0f;
     //load script into script
     private PlayerAction Player;
