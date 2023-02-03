@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerManager : MonoBehaviour{
-
-     public DummyTower dummyTowerPrefab;
+public class TowerManager : MonoBehaviour
+{
+    bool towersEnabled { get; set; } = true;
     // Start is called before the first frame update
 
-    public List<DummyTower> towers;
+    public List<TowerBehaviour> towers;
+    public TowerBehaviour towerPrefab;
     
     void Start()
     {
-        towers = new List<DummyTower>();
+        towers = new List<TowerBehaviour>();
     }
 
     // Update is called once per frame
@@ -20,23 +21,21 @@ public class TowerManager : MonoBehaviour{
         
     }
 
-    public GameObject [] getLocations() {
-        GameObject [] towers = GameObject.FindGameObjectsWithTag("Tower");
-        /*
-        List<Vector2> locations = new List<Vector2>();
-        foreach (GameObject tower in towers) {
-            locations.Add(tower.transform.position);
-        }*/
-        return towers;
+    public GameObject [] GetGameObjects() {
+        GameObject [] locations = new GameObject[towers.Count];
+        for(int i = 0; i < towers.Count; i++) {
+            locations[i] = towers[i].gameObject;
+        }
+        return locations;
     }
 
-    public void AddTower(DummyTower tower){
+    public void AddTower(TowerBehaviour tower){
         towers.Add(tower);
     }
     
     public List<Vector2> GetVector2s(){
         List<Vector2> transforms = new List<Vector2>();
-        foreach (DummyTower dt in towers){
+        foreach (TowerBehaviour dt in towers){
             transforms.Add(dt.transform.position);
         }
         return transforms;
@@ -44,13 +43,13 @@ public class TowerManager : MonoBehaviour{
     
     public List<Transform> GetTransforms(){
         List<Transform> transforms = new List<Transform>();
-        foreach (DummyTower dt in towers){
+        foreach (TowerBehaviour dt in towers){
             transforms.Add(dt.transform);
         }
         return transforms;
     }
     
-    public List<DummyTower> GetTowers(){
+    public List<TowerBehaviour> GetTowers(){
         return towers;
     }
     

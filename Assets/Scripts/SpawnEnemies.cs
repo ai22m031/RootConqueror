@@ -15,7 +15,7 @@ public class SpawnEnemies : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnCenter = GameManager.instance.lm._player.transform.position;
+        //spawnCenter = GameManager.instance.lm._player.transform.position;
     }
 
     // Update is called once per frame
@@ -24,6 +24,7 @@ public class SpawnEnemies : MonoBehaviour
         if(Time.time > timeStamp) {
             Vector2 spawnPos = new Vector2(spawnCenter.x + spawnRadius * Mathf.Cos(currSpawnAngle), spawnCenter.y + spawnRadius * Mathf.Sin(currSpawnAngle));
             GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+            GameManager.instance.lm.em.AddEnemy(enemy);
             currSpawnAngle += angle * Random.Range(1f, 3f);
             timeStamp = Time.time + spawnRate;
         }
