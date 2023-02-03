@@ -15,11 +15,12 @@ public class PlayerAction : MonoBehaviour
     private PlayerAction Player;
 
     bool isPlanting = false;
-
+    public Animator animator;
     public int health;
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         this.health = 5;
         Player = GameManager.instance._player.GetComponent<PlayerAction>();
     }
@@ -32,6 +33,7 @@ public class PlayerAction : MonoBehaviour
         if (!isPlanting)
         {
             Player.Move();
+                    
         }
 
     }
@@ -45,6 +47,20 @@ public class PlayerAction : MonoBehaviour
         }
     }
 
+    bool isMoving;
+    //getter Setter for isMoving
+    public bool moving
+    {
+        get { return isMoving; }
+        set
+        {
+            isMoving = value;
+            //set  animator isWalking to value aswell
+            animator.SetBool("isWalking", value);
+
+        }
+    }
+    
     public void Move()
     {
         // Get the input from the player
@@ -64,10 +80,15 @@ public class PlayerAction : MonoBehaviour
         {
             player.transform.position += new Vector3(horizontal, vertical, 0) * runSpeed * Time.deltaTime;
             mousePosition = player.transform.position;
+            //set moving true
+            moving = true;
+            
         }
         else
         {
-            player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(mousePosition.x, mousePosition.y, 0), runSpeed * Time.deltaTime);
+            moving = false;
+
+            // player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(mousePosition.x, mousePosition.y, 0), runSpeed * Time.deltaTime);
         }
     }
 
