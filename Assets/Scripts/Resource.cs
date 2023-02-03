@@ -19,7 +19,6 @@ public class Resource : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("Resource in convex hull");
         spriteRenderer.color = Color.white;
     }
 }

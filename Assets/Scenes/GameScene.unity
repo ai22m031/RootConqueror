@@ -11300,7 +11300,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 707843281
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13933,6 +13933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towers: []
+  towerPrefab: {fileID: 1566732275072724690, guid: 87afe431f4ea36746b70cfd8a2e1ee4e, type: 3}
 --- !u!1 &1222319116
 GameObject:
   m_ObjectHideFlags: 0
@@ -14068,7 +14069,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222319116}
   m_CullTransparentMesh: 1
-  towerPrefab: {fileID: 1566732275072724690, guid: 87afe431f4ea36746b70cfd8a2e1ee4e, type: 3}
 --- !u!1 &1223118126
 GameObject:
   m_ObjectHideFlags: 0
