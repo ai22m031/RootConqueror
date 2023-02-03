@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAction : MonoBehaviour
+public class PlayerAction : AlliedObjectBehaviour
 {
     float horizontal;
     float vertical;
@@ -14,53 +14,53 @@ public class PlayerAction : MonoBehaviour
     //load script into script
     private PlayerAction Player;
 
-    bool isPlanting = false;
-    public Animator animator;
-    public int health;
+    public enum PlayerState
+    {
+        Moving,
+        Planting
+    }
+    private PlayerState _state;
+    private float plantCooldown = 3f, plantTimeStamp = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponentInChildren<Animator>();
         this.health = 5;
         Player = GameManager.instance._player.GetComponent<PlayerAction>();
+        _state = PlayerState.Moving;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        isPlanting = Player.PlantCheck();
-        if (!isPlanting)
+        if(Time.time >= plantTimeStamp) {
+            if(_state == PlayerState.Planting) {
+                Instantiate(GameManager.instance.tm.towerPrefab, transform.position, Quaternion.identity);
+                _state = PlayerState.Moving;
+            }
+            if(_state == PlayerState.Moving && (Input.GetMouseButtonDown(1) || Input.GetButtonDown("Jump"))) {
+                _state = PlayerState.Planting;
+                plantTimeStamp = Time.time + plantCooldown;
+            }
+        }
+        if (_state == PlayerState.Moving)
         {
             Player.Move();
-                    
         }
 
     }
 
-    public void TakeDamage(int damage)
+    public override void TakeDamage(int damage)
     {
+        Debug.Log("Player took " + damage + " damage");
         health -= damage;
         if (health <= 0)
         {
+            Debug.Log("Player died");
             Time.timeScale = 0f;
         }
     }
 
-    bool isMoving;
-    //getter Setter for isMoving
-    public bool moving
-    {
-        get { return isMoving; }
-        set
-        {
-            isMoving = value;
-            //set  animator isWalking to value aswell
-            animator.SetBool("isWalking", value);
-
-        }
-    }
-    
     public void Move()
     {
         // Get the input from the player
@@ -80,32 +80,12 @@ public class PlayerAction : MonoBehaviour
         {
             player.transform.position += new Vector3(horizontal, vertical, 0) * runSpeed * Time.deltaTime;
             mousePosition = player.transform.position;
-            //set moving true
-            moving = true;
-            
         }
         else
         {
-            moving = false;
-
-            // player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(mousePosition.x, mousePosition.y, 0), runSpeed * Time.deltaTime);
+            player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(mousePosition.x, mousePosition.y, 0), runSpeed * Time.deltaTime);
         }
     }
 
-    public bool PlantCheck()
-    {
-        if (Input.GetMouseButtonDown(1) || Input.GetButtonDown("Jump"))
-        {
-            Vector3 playerPosition = GameManager.instance._player.transform.position;
-
-            TowerBehaviour dT = Instantiate(GameManager.instance.tm.towerPrefab, GameManager.instance.tm.transform, true);
-            dT.transform.position = playerPosition;
-            GameManager.instance.tm.AddTower(dT);
-            GameManager.instance.chm.CreateConvexHull();
-            GameManager.instance.resourceManager.countActiveResources();
-            return true;
-        }
-        return false;
-    }
 }
 
