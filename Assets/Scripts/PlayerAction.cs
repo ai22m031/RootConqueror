@@ -19,7 +19,7 @@ public class PlayerAction : MonoBehaviour
             Debug.Log("Tower created");
             Vector3 playerPosition = gm.lm._player.GetComponent<PlayerMovement>().PlayerPosition();
 
-            DummyTower dT = Instantiate(gm.lm.tm.dummyTowerPrefab, gm.lm.tm.transform, true);
+            TowerBehaviour dT = Instantiate(gm.lm.tm.towerPrefab, gm.lm.tm.transform, true);
             dT.transform.position= playerPosition;
             gm.lm.tm.AddTower(dT);
             gm.lm.chm.CreateConvexHull();
