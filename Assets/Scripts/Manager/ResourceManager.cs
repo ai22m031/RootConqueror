@@ -32,7 +32,7 @@ public class ResourceManager : MonoBehaviour
         int count = 0;
         
         resources.ForEach(resource => {
-            if (GameManager.instance.chm.isPointInsideConvexHull(resource.transform.position))
+            if (GameManager.instance.chm.IsPointInsideConvexHull(resource.transform.position))
             {
                 resource.GetComponent<Resource>().collect();
                 count++;

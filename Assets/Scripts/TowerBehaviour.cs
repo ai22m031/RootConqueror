@@ -8,6 +8,7 @@ public class TowerBehaviour : AlliedObjectBehaviour
     private float attackCooldown = 0.3f, attackCooldownTS = 0f;
     public int cost = 1;
     public GameObject bullet;
+    public float lifeTime = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,7 @@ public class TowerBehaviour : AlliedObjectBehaviour
             if (Time.time > attackCooldownTS && GameManager.instance.tm.towersEnabled) {
                 GameObject newBullet = Instantiate(bullet, this.transform.position, Quaternion.identity);
                 newBullet.GetComponent<BulletBehaviour>().direction = (closestEnemy.transform.position - this.transform.position).normalized;
+                Destroy (newBullet, lifeTime);
                 attackCooldownTS = Time.time + attackCooldown;
             }
         }
@@ -44,5 +46,9 @@ public class TowerBehaviour : AlliedObjectBehaviour
             GameManager.instance.tm.RemoveTower(this);
             Destroy(gameObject);
         }
+    }
+    
+    public float GetAttackRange (){
+        return ATTACK_RANGE;
     }
 }

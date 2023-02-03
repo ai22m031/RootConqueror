@@ -6,6 +6,7 @@ using TMPro;
 using static System.Net.Mime.MediaTypeNames;
 //import UI
 using UnityEngine.UI;
+using System;
 
 public class UIManager : MonoBehaviour
 {
@@ -13,7 +14,11 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI text_maxEnergy;
 
     public TextMeshProUGUI text_score;
-    
+
+    public TextMeshProUGUI text_dsKills;
+    public TextMeshProUGUI text_dsTime;
+    public TextMeshProUGUI text_dsTowers;
+
     public TextMeshProUGUI text_towerAmount;
 
     //public Image UI
@@ -46,6 +51,22 @@ public class UIManager : MonoBehaviour
         int enemiesKilled = GameManager.instance.em.enemiesKilled;
         //set text to enemies killed
         text_score.text = enemiesKilled.ToString();
+
+        //create timestamp and get from totaltime from GameManager
+        DateTime timestamp = GameManager.instance.totaltime;
+        //calculate delta time from timestamp and current time
+        //if player is not dead
+        if (player.health > 0)
+        {
+            //set delta time to text
+            int deltaTime = (int)(DateTime.Now - timestamp).TotalSeconds;
+            text_dsTime.text = deltaTime.ToString();
+        }
+        
+        text_dsKills.text = enemiesKilled.ToString();
+        text_dsTowers.text = GameManager.instance.tm.TowerAmount.ToString();
+        
+
     }
 
     private void updateCurrentEnergy(int currentEnergy) {
