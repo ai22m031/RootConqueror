@@ -14060,7 +14060,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1106155259}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bb152f453e08664fa23a40b86beba3f, type: 3}
+  m_Script: {fileID: 11500000, guid: daa23590f5851094eaadbe0d30ef9439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1116134724
@@ -18641,6 +18641,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RESOURCE_COUNT: 10
   RESOURCE_RADIUS: 6
+  START_RESOURCE_COUNT: 4
+  startPosition: {x: 0, y: 0}
   resourcePrefab: {fileID: 841771533859446524, guid: 878cbb7e5005277499bb71b2c3e901fc, type: 3}
 --- !u!4 &1540498311
 Transform:
