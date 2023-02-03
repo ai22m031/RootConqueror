@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public GameObject player;
-
+    public bool MouseMovement;
     float horizontal;
     float vertical;
     
@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         // Gives a value between -1 and 1
         horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
         vertical = Input.GetAxisRaw("Vertical"); // -1 is down
@@ -29,12 +30,12 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // Move the player
-
         if (horizontal != 0 || vertical != 0){
             player.transform.position += new Vector3(horizontal, vertical, 0) * runSpeed * Time.deltaTime;
             mousePosition = player.transform.position;
         }
-        else{
+        else if (MouseMovement)
+        {
             player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(mousePosition.x, mousePosition.y, 0), runSpeed * Time.deltaTime);
         }
     }

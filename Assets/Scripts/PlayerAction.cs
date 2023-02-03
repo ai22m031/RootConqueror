@@ -14,7 +14,7 @@ public class PlayerAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1)||Input.GetButton("Jump"))
+        if (Input.GetMouseButtonDown(1)||Input.GetButtonDown("Jump"))
         {
             Debug.Log("Tower created");
             Vector3 playerPosition = gm.lm._player.GetComponent<PlayerMovement>().PlayerPosition();
