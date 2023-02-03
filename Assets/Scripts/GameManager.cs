@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public MusicManager mm;
     public UIManager uim;
     public ResourceManager resourceManager;
+    public ConvexHullManager convexHullManager;
 
     // Start is called before the first frame update
     void Awake()
