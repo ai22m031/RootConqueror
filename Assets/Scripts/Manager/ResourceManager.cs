@@ -11,10 +11,10 @@ public class ResourceManager : MonoBehaviour
 
     public int baseRessources;
     
-    [Range(1, 10)]
-    public int RESOURCE_COUNT = 10;
+    [Range(1, 400)]
+    public int maxRessources = 10;
 
-    [Range(1.0f, 10.0f)]
+    [Range(1.0f, 400.0f)]
     public float RESOURCE_RADIUS = 10.0f;
 
     [Range(1, 10)]
@@ -51,13 +51,6 @@ public class ResourceManager : MonoBehaviour
         UnityEngine.Debug.Log(resources.Count);
 
     }
-    private void spawnRandomResources()
-    {
-        for (int i = 0; i < RESOURCE_COUNT; i++)
-        {
-            intantiateResource(generateRandomVector());
-        }
-    }
 
     public int getActiveResourceAmount()
     {
@@ -80,13 +73,27 @@ public class ResourceManager : MonoBehaviour
     }
 
 
-    private GameObject intantiateResource(Vector3 position)
+    private GameObject InstantiateRessourceAtLocation(Vector3 position)
     {
         return Instantiate(resourcePrefab, position, Quaternion.identity, this.transform);
     }
 
-    private Vector3 generateRandomVector()
+    public void spawnRandomResources()
     {
-        return new Vector3(UnityEngine.Random.Range(-RESOURCE_RADIUS, RESOURCE_RADIUS), UnityEngine.Random.Range(-RESOURCE_RADIUS, RESOURCE_RADIUS), 0.0f);
+        int spawnedRessources = 0;
+        //spawn resources
+        while (spawnedRessources < maxRessources)
+        {
+            Vector3 position = new Vector3(Random.Range(-RESOURCE_RADIUS, RESOURCE_RADIUS), Random.Range(-RESOURCE_RADIUS, RESOURCE_RADIUS), 0.0f);
+            resources.ForEach(resource =>
+            {
+                if (Vector3.Distance(resource.transform.position, position) < 1.5f)
+                {
+                    position = new Vector3(Random.Range(-RESOURCE_RADIUS, RESOURCE_RADIUS), Random.Range(-RESOURCE_RADIUS, RESOURCE_RADIUS), 0.0f);
+                }
+            });
+            InstantiateRessourceAtLocation(position);
+            spawnedRessources++;
+        }
     }
 }

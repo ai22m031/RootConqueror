@@ -19724,8 +19724,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa23590f5851094eaadbe0d30ef9439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RESOURCE_COUNT: 10
-  RESOURCE_RADIUS: 10
+  baseRessources: 3
+  maxRessources: 400
+  RESOURCE_RADIUS: 44
   START_RESOURCE_COUNT: 4
   startPosition: {x: 0, y: 0}
   resourcePrefab: {fileID: 841771533859446524, guid: 878cbb7e5005277499bb71b2c3e901fc, type: 3}
