@@ -14,6 +14,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     private State _state;
     private GameObject target;
+    private float attackCooldownTS = 0f;
+    private float attackCooldown = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -51,13 +53,18 @@ public class EnemyBehaviour : MonoBehaviour
             _state = State.Attacking;
             target = closestLocation;
         } else {
-            this.transform.position = Vector2.MoveTowards(this.transform.position, closestLocation.transform.position, speed * Time.deltaTime);
+            Vector2 direction = (closestLocation.transform.position - this.transform.position);
+            direction.Normalize();
+            this.transform.Translate(direction * speed * Time.deltaTime);
         }
     }
 
     void AttackEnemy()
     {
-        target.GetComponent<TowerScript>().TakeDamage(1);
+        if(Time.time > attackCooldownTS) {
+            target.GetComponent<TowerScript>().TakeDamage(1);
+            attackCooldownTS = Time.time + attackCooldown;
+        }
         _state = State.Searching;
     }
 }
