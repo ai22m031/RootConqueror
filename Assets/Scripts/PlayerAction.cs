@@ -23,7 +23,7 @@ public class PlayerAction : MonoBehaviour
             dT.transform.position= playerPosition;
             gm.lm.tm.AddTower(dT);
             gm.lm.chm.CreateConvexHull();
-            Debug.Log("Active resources" + gm.resourceManager.countActiveResources());
+            gm.resourceManager.countActiveResources();
         }
 
         if (Input.GetButton("Jump"))

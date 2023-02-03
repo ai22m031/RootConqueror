@@ -38,6 +38,14 @@ public class ResourceManager : MonoBehaviour
             }
         });
 
+        GameManager.instance.uim.updateCurrentEnergy(count);
+
         return count;
+    }
+
+    public int countMaxResources()
+    {
+        GameManager.instance.uim.updateMaxEnergy(resources.Count);
+        return resources.Count;
     }
 }
