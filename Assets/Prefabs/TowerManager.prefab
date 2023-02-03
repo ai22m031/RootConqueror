@@ -76,4 +76,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  towerPrefab: {fileID: 1566732275072724690, guid: 87afe431f4ea36746b70cfd8a2e1ee4e, type: 3}
+  towerPrefab: {fileID: 0}
+  TowerAmount: 0
+  towerCost: 0

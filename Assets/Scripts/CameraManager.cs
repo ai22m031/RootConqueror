@@ -6,9 +6,9 @@ using UnityEditor;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour{
-    [SerializeField] private GameObject player;
     [SerializeField] private Vector3 offset;
 
+    private GameObject _player; 
     [SerializeField] private CamMode _camMode = CamMode.CenterPlayer;
     private GameManager gm;
     public enum CamMode{
@@ -29,6 +29,7 @@ public class CameraManager : MonoBehaviour{
     public void Start(){
         mainCam = Camera.main;
         gm = GameManager.instance;
+        _player = gm._player;
     }
 
     private void LateUpdate(){
@@ -36,7 +37,7 @@ public class CameraManager : MonoBehaviour{
         HandleMinimapCam();
         
         if (_camMode == CamMode.CenterPlayer){
-            Vector3 newCamPos = new Vector3(player.transform.position.x, player.transform.position.y, mainCam.transform.position.z);
+            Vector3 newCamPos = new Vector3(_player.transform.position.x, _player.transform.position.y, mainCam.transform.position.z);
             mainCam.transform.position = newCamPos;
             
         }else if (_camMode == CamMode.ClampPlayerAndTowers){
@@ -49,14 +50,14 @@ public class CameraManager : MonoBehaviour{
                     gm.chm.CreateConvexHull();
                 }
                 Bounds bounds = CalculateBounds(closestTowers);
-                bounds = AddPlayerBounds(bounds, player.GetComponent<PlayerAction>());
-                if (gm.chm.IsPointInsideConvexHull(player.transform.position)){
+                bounds = AddPlayerBounds(bounds, _player.GetComponent<PlayerAction>());
+                if (gm.chm.IsPointInsideConvexHull(_player.transform.position)){
                     Vector3 centroid = gm.chm.GetConvexHullCentroid().transform.position;
                     newCamPos = new Vector3(centroid.x,centroid.y, mainCam.transform.position.z);
                 }
                 else{
                     Vector3 centroid = gm.chm.GetConvexHullCentroid().transform.position;
-                    Vector3 helpPos = (centroid + player.transform.position) / 2;
+                    Vector3 helpPos = (centroid + _player.transform.position) / 2;
                     newCamPos = new Vector3(helpPos.x, helpPos.y, mainCam.transform.position.z);
                 }
                 if (!IsWithinCameraView(mainCam,bounds))
@@ -99,7 +100,7 @@ public class CameraManager : MonoBehaviour{
             // Iterate over the objects
             foreach (TowerBehaviour tower in gm.tm.GetTowers()){
                 // Calculate the distance between the player and the current object
-                float distance = Vector3.Distance(player.transform.position, tower.transform.position);
+                float distance = Vector3.Distance(_player.transform.position, tower.transform.position);
 
                 // Check if the closestElements list has less than numberOfElements elements
                 if (closestTowers.Count < x){
@@ -110,10 +111,10 @@ public class CameraManager : MonoBehaviour{
                     // If the list is full, find the farthest element in the list
                     TowerBehaviour farthestElement = closestTowers[0];
                     float farthestDistance =
-                        Vector3.Distance(player.transform.position, farthestElement.transform.position);
+                        Vector3.Distance(_player.transform.position, farthestElement.transform.position);
 
                     for (int i = 1; i < closestTowers.Count; i++){
-                        float currentDistance = Vector3.Distance(player.transform.position,
+                        float currentDistance = Vector3.Distance(_player.transform.position,
                             closestTowers[i].transform.position);
                         if (currentDistance > farthestDistance){
                             farthestDistance = currentDistance;
@@ -216,7 +217,7 @@ public class CameraManager : MonoBehaviour{
     }
 
     void CalculateMiniMapZoom(){
-        Vector3 newCamPos = new Vector3(player.transform.position.x, player.transform.position.y, miniMapCam.transform.position.z);
+        Vector3 newCamPos = new Vector3(_player.transform.position.x, _player.transform.position.y, miniMapCam.transform.position.z);
         //List<DummyTower> closestTowers = GetClosestXTowersToPlayer(3);
         List<TowerBehaviour> closestTowers = gm.tm.towers;
         if (closestTowers.Count > 0){

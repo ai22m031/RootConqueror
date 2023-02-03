@@ -51,7 +51,7 @@ public class PlayerAction : AlliedObjectBehaviour{
             Player.Move();
         }
         //check if player is in ConvexHull with isPointInsideConvexHull from ConvexHullManager
-        if (GameManager.instance.chm.isPointInsideConvexHull(this.transform.position))
+        if (GameManager.instance.chm.IsPointInsideConvexHull(this.transform.position))
         {
             //add 1 health each second
             deltaTime += Time.deltaTime;

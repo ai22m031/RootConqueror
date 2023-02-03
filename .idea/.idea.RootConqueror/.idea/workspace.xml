@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f43c9bc-a193-4a64-8606-e5d05211520e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/CameraManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CameraManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MapManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MapManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RootConqueror/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RootConqueror/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MiniMap/ConvexHullCentroid.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MiniMap/ConvexHullCentroid.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/ConvexHullManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/ConvexHullManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourceManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TowerBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TowerBehaviour.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,11 +82,11 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/MapManager.cs" />
       <option value="$PROJECT_DIR$/Assets/CameraManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TowerBehaviour.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAction.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ResourceManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/CameraManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Manager/ConvexHullManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAction.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CameraManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="2LCFgovIvzpgHvjte61SWHWXmKu" />
@@ -164,37 +155,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/CameraManager.cs</url>
-          <line>48</line>
-          <properties documentPath="S:\Projects\Unity\RootConqueror\Assets\Scripts\CameraManager.cs" initialLine="48" containingFunctionPresentation="method 'LateUpdate'">
-            <startOffsets>
-              <option value="1506" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1532" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/QuickHull.cs</url>
-          <line>45</line>
-          <properties documentPath="S:\Projects\Unity\RootConqueror\Assets\Scripts\QuickHull.cs" initialLine="45" containingFunctionPresentation="method 'GetConvexHull'">
-            <startOffsets>
-              <option value="1103" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1121" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
