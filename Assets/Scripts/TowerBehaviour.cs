@@ -13,9 +13,6 @@ public class TowerBehaviour : AlliedObjectBehaviour
     {
         this.health = 5;
         GameManager.instance.tm.AddTower(this);
-        GameManager.instance.chm.CreateConvexHull();
-        GameManager.instance.resourceManager.countActiveResources();
-        GameManager.instance.tm.UpdateCosts();
     }
 
     // Update is called once per frame
@@ -31,7 +28,7 @@ public class TowerBehaviour : AlliedObjectBehaviour
             }
         });
         if (minDis < ATTACK_RANGE) {
-            if (Time.time > attackCooldownTS) {
+            if (Time.time > attackCooldownTS && GameManager.instance.tm.towersEnabled) {
                 GameObject newBullet = Instantiate(bullet, this.transform.position, Quaternion.identity);
                 newBullet.GetComponent<BulletBehaviour>().direction = (closestEnemy.transform.position - this.transform.position).normalized;
                 attackCooldownTS = Time.time + attackCooldown;

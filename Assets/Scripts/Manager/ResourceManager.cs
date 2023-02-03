@@ -6,7 +6,10 @@ public class ResourceManager : MonoBehaviour
 {
     [HideInInspector]
     public List<GameObject> resources {get; private set;} = new List<GameObject>();
-    
+
+    [HideInInspector]
+    public int resourceCount {get; private set;} = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +27,7 @@ public class ResourceManager : MonoBehaviour
         resources.Add(resource);
     }
 
-    public int countActiveResources()
+    public int refreshActiveResources()
     {
         int count = 0;
         
@@ -38,14 +41,8 @@ public class ResourceManager : MonoBehaviour
             }
         });
 
-        GameManager.instance.uim.updateCurrentEnergy(count);
+        resourceCount = count;
 
         return count;
-    }
-
-    public int countMaxResources()
-    {
-        GameManager.instance.uim.updateMaxEnergy(resources.Count);
-        return resources.Count;
     }
 }

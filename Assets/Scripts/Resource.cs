@@ -7,16 +7,9 @@ public class Resource : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public bool isCollected = false;
     
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         spriteRenderer.color = Color.blue;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void collect() {
