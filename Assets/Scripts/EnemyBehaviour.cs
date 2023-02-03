@@ -7,7 +7,6 @@ public class EnemyBehaviour : MonoBehaviour
     public const float ATTACK_RANGE = 0.5f;
     public const float speed = 3f;
     private int health = 3;
-    private float attackCooldown = 0.5f, attackCooldownTS = 0f;
 
     public enum State {
         Searching,
@@ -40,7 +39,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void SearchEnemy()
     {
-        GameObject [] locations = GameManager.instance.lm.tm.getLocations();
+        GameObject [] locations = GameManager.instance.lm.tm.GetGameObjects();
         Vector2 playerPos = GameManager.instance.lm._player.transform.position;
         float minDis = Vector2.Distance(playerPos, this.transform.position);
         GameObject closestLocation = GameManager.instance.lm._player;
