@@ -6,9 +6,9 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    LogicManager lm;
-    MusicManager mm;
-    UIManager uim;
+    public LogicManager lm;
+    public MusicManager mm;
+    public UIManager uim;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
             instance = this;
         else
             throw new Exception("Created another instance of singleton Game Manager");
-        
     }
 
     // Update is called once per frame
