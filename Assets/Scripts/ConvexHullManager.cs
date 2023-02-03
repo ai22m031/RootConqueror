@@ -26,6 +26,7 @@ public class ConvexHullManager : MonoBehaviour{
     
         if (convexHullPoints.Count > 2) {
             _polygonCollider.points = convexHullPoints.ToArray();
+            _polygonCollider.enabled = true;
         }
     }
 
