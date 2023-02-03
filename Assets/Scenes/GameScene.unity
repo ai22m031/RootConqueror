@@ -13337,8 +13337,8 @@ Rigidbody:
   m_GameObject: {fileID: 1148820986}
   serializedVersion: 2
   m_Mass: 0.0000001
-  m_Drag: 0
-  m_AngularDrag: 0
+  m_Drag: 45.29
+  m_AngularDrag: 22.77
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -21014,8 +21014,8 @@ Rigidbody:
   m_GameObject: {fileID: 1832318371}
   serializedVersion: 2
   m_Mass: 0.0000001
-  m_Drag: 0
-  m_AngularDrag: 0
+  m_Drag: 45.29
+  m_AngularDrag: 22.77
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -22311,7 +22311,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 8
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5326731f327fbd34aa1e9f5c65120f86, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -25457,6 +25457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2139479142}
   - component: {fileID: 2139479143}
+  - component: {fileID: 2139479144}
   m_Layer: 0
   m_Name: EnemyManager
   m_TagString: Untagged
@@ -25491,6 +25492,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 463274d9b8c38974ea7c8eca2570c67a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2139479144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139479141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d5133ec1e648004594bf7e99ec72d95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnCenter: {x: 0, y: 0}
+  enemyPrefab: {fileID: 0}
 --- !u!1 &2143153099
 GameObject:
   m_ObjectHideFlags: 0
