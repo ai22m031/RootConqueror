@@ -48,4 +48,8 @@ public class TowerBehaviour : AlliedObjectBehaviour
             Destroy(gameObject);
         }
     }
+    
+    public float GetAttackRange (){
+        return ATTACK_RANGE;
+    }
 }
