@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   bullet: {fileID: 7695106436276869969, guid: 9c2b4d962cef8824f9e7c13271388ff6, type: 3}
+  lifeTime: 1
 --- !u!50 &1566732275072724691
 Rigidbody2D:
   serializedVersion: 4
