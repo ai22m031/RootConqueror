@@ -8,6 +8,7 @@ public class SpawnEnemies : MonoBehaviour
     public GameObject enemyPrefab;
     float spawnRadius = 15f;
     float spawnRate = 1f;
+    float timeStamp = 0f;
     float angle = 73f;
     float currSpawnAngle = 0f;
 
@@ -20,10 +21,11 @@ public class SpawnEnemies : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.time % spawnRate == 0) {
+        if(Time.time > timeStamp) {
             Vector2 spawnPos = new Vector2(spawnCenter.x + spawnRadius * Mathf.Cos(currSpawnAngle), spawnCenter.y + spawnRadius * Mathf.Sin(currSpawnAngle));
             GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
             currSpawnAngle += angle;
+            timeStamp = Time.time + spawnRate;
         }
     }
 }
