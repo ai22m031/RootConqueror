@@ -8,6 +8,7 @@ public class EnemyBehaviour : MonoBehaviour
     public const float speed = 3f;
     public GameObject Visual;
     private int health = 6;
+    
 
     public enum State {
         Searching,
@@ -94,6 +95,8 @@ public class EnemyBehaviour : MonoBehaviour
         if(health <= 0) {
             GameManager.instance.em.RemoveEnemy(this);
             Destroy(this.gameObject);
+            GameManager.instance.em.enemiesKilled++;
+
         }
     }
 }

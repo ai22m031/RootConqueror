@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI text_currentEnergy;
     public TextMeshProUGUI text_maxEnergy;
 
+    public TextMeshProUGUI text_score;
+    
     public TextMeshProUGUI text_towerAmount;
 
     //public Image UI
@@ -36,6 +38,11 @@ public class UIManager : MonoBehaviour
         //Set TowerAmount to TowerManager AMount
         text_towerAmount.text = GameManager.instance.tm.TowerAmount.ToString();
         health = (float)GameManager.instance._player.GetComponent<PlayerAction>().health / (float)GameManager.instance._player.GetComponent<PlayerAction>().maxHealth;
+
+        //get enemies killed vom enemybehaviour script
+        int enemiesKilled = GameManager.instance.em.enemiesKilled;
+        //set text to enemies killed
+        text_score.text = enemiesKilled.ToString();
     }
 
     public void updateCurrentEnergy(int currentEnergy) {
