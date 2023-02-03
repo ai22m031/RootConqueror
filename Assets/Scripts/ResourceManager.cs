@@ -23,4 +23,29 @@ public class ResourceManager : MonoBehaviour
     {
         resources.Add(resource);
     }
+
+    public int countActiveResources()
+    {
+        int count = 0;
+        
+        resources.ForEach(resource => {
+            if (GameManager.instance.convexHullManager.isPointInsideConvexHull(resource.transform.position))
+            {
+                resource.GetComponent<Resource>().collect();
+                count++;
+            } else {
+                resource.GetComponent<Resource>().uncollect();
+            }
+        });
+
+        GameManager.instance.uim.updateCurrentEnergy(count);
+
+        return count;
+    }
+
+    public int countMaxResources()
+    {
+        GameManager.instance.uim.updateMaxEnergy(resources.Count);
+        return resources.Count;
+    }
 }
