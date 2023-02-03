@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAction : AlliedObjectBehaviour
-{
+public class PlayerAction : AlliedObjectBehaviour{
+    private SpriteRenderer sr;
     float horizontal;
     float vertical;
+    private float viewDistance = 5f;
 
     Vector3 mousePosition;
     private GameObject player;
@@ -24,8 +25,8 @@ public class PlayerAction : AlliedObjectBehaviour
     private float plantCooldown = 3f, plantTimeStamp = 0f;
     public int maxHealth;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
+        sr = GetComponentInChildren<SpriteRenderer>();
         this.health = maxHealth;
         Player = GameManager.instance._player.GetComponent<PlayerAction>();
         _state = PlayerState.Moving;
@@ -92,5 +93,13 @@ public class PlayerAction : AlliedObjectBehaviour
         }
     }
 
+    public SpriteRenderer GetSpriteRenderer(){
+        return sr;
+    }
+
+    public float GetViewDistance(){
+        return viewDistance;
+    }
+    
 }
 

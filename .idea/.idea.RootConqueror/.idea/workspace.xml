@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2f43c9bc-a193-4a64-8606-e5d05211520e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/CameraManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CameraManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MapManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MapManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/ConvexHullManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/ConvexHullManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourceManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TowerBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TowerBehaviour.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/master" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://S:/Projects/Unity/RootConqueror/Assets/Scripts/TowerManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager/ConvexHullManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DummyTower.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://S:/Projects/Unity/RootConqueror/Assets/Scripts/DummyTower.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://S:/Projects/Unity/RootConqueror/Assets/Scripts/LogicManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://S:/Projects/Unity/RootConqueror/Assets/Scripts/Manager/ConvexHullManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://S:/Projects/Unity/RootConqueror/Assets/Scripts/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://S:/Projects/Unity/RootConqueror/Assets/Scripts/Manager/ConvexHullManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6232873-6095-49B8-A045-FA15811A5BD3/14/6153be24/Single.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://S:/Projects/Unity/RootConqueror/Assets/Scripts/DummyTower.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://S:/Projects/Unity/RootConqueror/Assets/Scripts/LogicManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://S:/Projects/Unity/RootConqueror/Assets/Scripts/TowerManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://S:/Projects/Unity/RootConqueror/Assets/Scripts/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/Scripts/ConvexHull.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ConvexHullNew.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/QuickHull2D.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/QuickHull2.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/NewQuickhull.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TestQH.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/QuickHull.cs" />
+      <option value="$PROJECT_DIR$/Assets/Materials/BorderColor.shader" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TowerManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LogicManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/DummyTower.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ConvexHullManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerAction.cs" />
+      <option value="$PROJECT_DIR$/Assets/MapManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/MapManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/CameraManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TowerBehaviour.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAction.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ResourceManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CameraManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Manager/ConvexHullManager.cs" />
+    </changedPaths>
+  </component>
+  <component name="ProjectId" id="2LCFgovIvzpgHvjte61SWHWXmKu" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="19832">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" value="19832" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2f43c9bc-a193-4a64-8606-e5d05211520e" name="Default Changelist" comment="" />
+      <created>1675367278427</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1675367278427</updated>
+      <workItem from="1675367292658" duration="10882000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/CameraManager.cs</url>
+          <line>48</line>
+          <properties documentPath="S:\Projects\Unity\RootConqueror\Assets\Scripts\CameraManager.cs" initialLine="48" containingFunctionPresentation="method 'LateUpdate'">
+            <startOffsets>
+              <option value="1506" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1532" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/QuickHull.cs</url>
+          <line>45</line>
+          <properties documentPath="S:\Projects\Unity\RootConqueror\Assets\Scripts\QuickHull.cs" initialLine="45" containingFunctionPresentation="method 'GetConvexHull'">
+            <startOffsets>
+              <option value="1103" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1121" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
