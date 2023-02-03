@@ -6,6 +6,7 @@ public class Resource : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
     public bool isCollected = false;
+    public int value;
     
     void Awake()
     {

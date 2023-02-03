@@ -13,7 +13,7 @@ public class TowerBehaviour : AlliedObjectBehaviour
     void Start()
     {
         this.health = 5;
-        GameManager.instance.tm.AddTower(this);
+        GameManager.instance.tm.AddTower(this.gameObject);
     }
 
     // Update is called once per frame
@@ -43,6 +43,7 @@ public class TowerBehaviour : AlliedObjectBehaviour
                 attackCooldownTS = Time.time + attackCooldown;
             }
             else {
+                //
                 this.transform.localScale = new Vector3(0.15f + 0.05f * ((attackCooldownTS - Time.time) / attackCooldown), 0.2f, 1f);
             }
         }
@@ -53,7 +54,7 @@ public class TowerBehaviour : AlliedObjectBehaviour
         health -= damage;
         if (health <= 0)
         {
-            GameManager.instance.tm.RemoveTower(this);
+            GameManager.instance.tm.RemoveTower(this.gameObject);
             Destroy(gameObject);
         }
     }

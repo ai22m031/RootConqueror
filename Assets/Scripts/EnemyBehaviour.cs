@@ -65,15 +65,15 @@ public class EnemyBehaviour : MonoBehaviour
 
     void SearchEnemy()
     {
-        GameObject [] locations = GameManager.instance.tm.GetGameObjects();
+        GameObject [] towers = GameManager.instance.tm.towers.ToArray();
         Vector2 playerPos = GameManager.instance._player.transform.position;
         float minDis = Vector2.Distance(playerPos, this.transform.position);
         GameObject closestLocation = GameManager.instance._player;
-        foreach(GameObject loc in locations) {
-            float newDis = Vector2.Distance(loc.transform.position, this.transform.position);
+        foreach(GameObject tower in towers) {
+            float newDis = Vector2.Distance(tower.transform.position, this.transform.position);
             if(newDis < minDis) {
                 minDis = newDis;
-                closestLocation = loc;
+                closestLocation = tower;
             }
         }
         target = closestLocation;

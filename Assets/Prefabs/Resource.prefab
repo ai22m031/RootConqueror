@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6711221394768265921}
   m_Layer: 0
   m_Name: Resource
-  m_TagString: Untagged
+  m_TagString: Resource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 6711221394768265921}
   isCollected: 0
+  value: 1
 --- !u!212 &6711221394768265921
 SpriteRenderer:
   m_ObjectHideFlags: 0

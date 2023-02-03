@@ -33,12 +33,13 @@ public class GameManager : MonoBehaviour
             instance = this;
         else
             throw new Exception("Created another instance of singleton Game Manager");
+        Instantiate(_StartObject, new Vector3(), Quaternion.identity);
+
     }
 
     void Start()
     {
         
-        Instantiate(_StartObject, new Vector3(), Quaternion.identity);
         totaltime = DateTime.Now;
     }
 

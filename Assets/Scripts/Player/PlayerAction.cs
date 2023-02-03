@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class PlayerAction : AlliedObjectBehaviour{
@@ -40,14 +41,15 @@ public class PlayerAction : AlliedObjectBehaviour{
             if(_state == PlayerState.Planting) {
                 Instantiate(GameManager.instance.tm.towerPrefab, transform.position, Quaternion.identity);
                 _state = PlayerState.Moving;
+                UnityEngine.Debug.Log("Planted tower");
             }
-            if(_state == PlayerState.Moving && (Input.GetMouseButtonDown(1) || Input.GetButtonDown("Jump"))) {
-                if (GameManager.instance.tm.CanPlaceTower(GameManager.instance.tm.towerPrefab.GetComponent<TowerBehaviour>())) {
+            if (_state == PlayerState.Moving && (Input.GetMouseButtonDown(1) || Input.GetButtonDown("Jump"))) {
+                if (GameManager.instance.tm.CanPlaceTower(GameManager.instance.tm.towerPrefab)) {
                     _state = PlayerState.Planting;
                     plantTimeStamp = Time.time + plantCooldown;
                 } else {
                     // TODO: Play sound effect
-                    Debug.Log("Cannot place tower");
+                    UnityEngine.Debug.Log("Cannot place tower");
                 }
             }
         }
@@ -75,11 +77,11 @@ public class PlayerAction : AlliedObjectBehaviour{
 
     public override void TakeDamage(int damage)
     {
-        Debug.Log("Player took " + damage + " damage");
+        UnityEngine.Debug.Log("Player took " + damage + " damage");
         health -= damage;
         if (health <= 0)
         {
-            Debug.Log("Player died");
+            UnityEngine.Debug.Log("Player died");
             Time.timeScale = 0f;
             EndScreen.SetActive(true);
             //set pause true

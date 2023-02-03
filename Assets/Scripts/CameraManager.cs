@@ -43,7 +43,7 @@ public class CameraManager : MonoBehaviour{
         }else if (_camMode == CamMode.ClampPlayerAndTowers){
             Vector3 newCamPos = mainCam.transform.position;
             //List<DummyTower> closestTowers = GetClosestXTowersToPlayer(3);
-            List<TowerBehaviour> closestTowers = gm.tm.towers;
+            List<GameObject> closestTowers = gm.tm.towers;
             
             if (closestTowers.Count > 2){
                 if (gm.chm.GetConvexHullCentroid() == null){
@@ -96,9 +96,11 @@ public class CameraManager : MonoBehaviour{
     
     public List<TowerBehaviour> GetClosestXTowersToPlayer(int x){
         List<TowerBehaviour> closestTowers = new List<TowerBehaviour>();
-        if (gm.tm.GetTowers().Count > x){
+        if (gm.tm.towers.Count > x){
             // Iterate over the objects
-            foreach (TowerBehaviour tower in gm.tm.GetTowers()){
+            foreach (GameObject sobject in gm.tm.towers)
+            {
+                TowerBehaviour tower = sobject.GetComponent<TowerBehaviour>(); 
                 // Calculate the distance between the player and the current object
                 float distance = Vector3.Distance(_player.transform.position, tower.transform.position);
 
@@ -131,7 +133,14 @@ public class CameraManager : MonoBehaviour{
             }
         }
         else{
-            closestTowers = gm.tm.GetTowers();
+            List<TowerBehaviour> allTowers = new List<TowerBehaviour>();
+            //fill allTowers from towers
+            foreach (GameObject sobject in gm.tm.towers)
+            {
+                TowerBehaviour tower = sobject.GetComponent<TowerBehaviour>();
+                allTowers.Add(tower);
+            }
+            closestTowers = allTowers;
         }
 
         return closestTowers;
@@ -148,12 +157,13 @@ public class CameraManager : MonoBehaviour{
                viewportPoint.z >= 0f;
     }
 
-
-    private Bounds CalculateBounds(List<TowerBehaviour> objectsInBounds)
+    
+    private Bounds CalculateBounds(List<GameObject> objectsInBounds)
     {
         Bounds bounds = new Bounds(objectsInBounds[0].transform.position, Vector3.zero);
-        foreach (TowerBehaviour tower in objectsInBounds)
+        foreach (GameObject sobject in objectsInBounds)
         {
+            TowerBehaviour tower = sobject.GetComponent<TowerBehaviour>();
             Renderer renderer = tower.GetComponent<Renderer>();
             bounds.Encapsulate(renderer.bounds);
             float attackRadius = tower.GetAttackRange();
@@ -219,7 +229,7 @@ public class CameraManager : MonoBehaviour{
     void CalculateMiniMapZoom(){
         Vector3 newCamPos = new Vector3(_player.transform.position.x, _player.transform.position.y, miniMapCam.transform.position.z);
         //List<DummyTower> closestTowers = GetClosestXTowersToPlayer(3);
-        List<TowerBehaviour> closestTowers = gm.tm.towers;
+        List<GameObject> closestTowers = gm.tm.towers;
         if (closestTowers.Count > 0){
             Bounds bounds = CalculateBounds(closestTowers);
             //bounds = AddPlayerBounds(bounds, player.GetComponent<PlayerMovement>());

@@ -22,9 +22,16 @@ public class ConvexHullManager : MonoBehaviour{
         gm = GameManager.instance;
     }
 
-    
+
     public void CreateConvexHull(){
-        convexHullPoints = QuickHull.GetConvexHull(gm.tm.GetVector2s());
+        List<Vector2> vec2 = new List<Vector2>();
+        gm.tm.towers.ForEach(tower =>
+        {
+            Vector2 towerPosition = tower.transform.position;
+            vec2.Add(towerPosition);
+        });
+        
+        convexHullPoints = QuickHull.GetConvexHull(vec2);
         Mesh convexHullMesh = CreateMeshFromPolygon(convexHullPoints);
         _meshFilter.mesh = convexHullMesh;
         meshes.Add(convexHullMesh);
