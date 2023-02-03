@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
     {
         UnityEngine.Debug.Log("Player died");
         uim.EndScreen.SetActive(true);
+        Time.timeScale = 0;
+
         pause = true;
     }
     void Start()
@@ -51,19 +53,15 @@ public class GameManager : MonoBehaviour
 
 
 
-    private bool Pause;
     //getter setter for pause
-    public bool pause
-    {
-        get { return Pause; }
-        set { Pause = value; }
-    }
+    public bool pause;
+
  
 
     // Update is called once per frame
     void Update()
     {
-        if (Pause)
+        if (pause)
         {
             Time.timeScale = 0;
         }
