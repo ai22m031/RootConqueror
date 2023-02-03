@@ -103,7 +103,7 @@ public class EnemyBehaviour : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        if(health <= 0) {
+        if(health <= 0 && isDead == false) {
             isDead = true;
             GameManager.instance.em.RemoveEnemy(this);
             GameManager.instance.em.enemiesKilled++;

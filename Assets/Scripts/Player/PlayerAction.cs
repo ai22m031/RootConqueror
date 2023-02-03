@@ -15,7 +15,7 @@ public class PlayerAction : AlliedObjectBehaviour{
     //load script into script
     private PlayerAction Player;
     public GameObject EndScreen;
-
+    public ParticleSystem LifeAdd;
     public enum PlayerState
     {
         Moving,
@@ -51,13 +51,14 @@ public class PlayerAction : AlliedObjectBehaviour{
             Player.Move();
         }
         //check if player is in ConvexHull with isPointInsideConvexHull from ConvexHullManager
-        if (GameManager.instance.chm.IsPointInsideConvexHull(this.transform.position))
+        if (health < maxHealth && GameManager.instance.chm.IsPointInsideConvexHull(this.transform.position))
         {
             //add 1 health each second
             deltaTime += Time.deltaTime;
             if (deltaTime > 1)
             {
                 this.health++;
+                LifeAdd.Play();
                 deltaTime = 0;
             }
         }
