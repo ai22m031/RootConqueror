@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    public const float ATTACK_RANGE = 0.5f;
+    public float ATTACK_RANGE = 0.5f;
     public const float speed = 3f;
+    public GameObject Visual;
+    private int health = 6;
 
     public enum State {
         Searching,
@@ -17,6 +19,8 @@ public class EnemyBehaviour : MonoBehaviour
     private float attackCooldownTS = 0f;
     private float attackCooldown = 1f;
 
+    public Animator animator;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -29,19 +33,30 @@ public class EnemyBehaviour : MonoBehaviour
         switch(_state) {
             case State.Searching:
                 SearchEnemy();
+                //rotate towards target
+                if (target == null) return; 
+                Vector2 direction = (target.transform.position - this.transform.position);
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                Visual.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, 1f);
+                
+                animator.SetBool("walking", true);
+                
                 break;
             case State.Attacking:
                 AttackEnemy();
+                animator.SetBool("walking", false);
+
                 break;
         }
     }
 
     void SearchEnemy()
     {
-        GameObject [] locations = GameManager.instance.lm.tm.getLocations();
-        Vector2 playerPos = GameManager.instance.lm._player.transform.position;
+        GameObject [] locations = GameManager.instance.tm.GetGameObjects();
+        Vector2 playerPos = GameManager.instance._player.transform.position;
         float minDis = Vector2.Distance(playerPos, this.transform.position);
-        GameObject closestLocation = GameManager.instance.lm._player;
+        GameObject closestLocation = GameManager.instance._player;
         foreach(GameObject loc in locations) {
             float newDis = Vector2.Distance(loc.transform.position, this.transform.position);
             if(newDis < minDis) {
@@ -49,9 +64,10 @@ public class EnemyBehaviour : MonoBehaviour
                 closestLocation = loc;
             }
         }
-        if(minDis < ATTACK_RANGE) {
+        target = closestLocation;
+
+        if (minDis < ATTACK_RANGE) {
             _state = State.Attacking;
-            target = closestLocation;
         } else {
             Vector2 direction = (closestLocation.transform.position - this.transform.position);
             direction.Normalize();
@@ -61,10 +77,23 @@ public class EnemyBehaviour : MonoBehaviour
 
     void AttackEnemy()
     {
+        if(target == null) {
+            _state = State.Searching;
+            return;
+        }
         if(Time.time > attackCooldownTS) {
-            target.GetComponent<TowerScript>().TakeDamage(1);
+            target.GetComponent<AlliedObjectBehaviour>().TakeDamage(1);
+            _state = State.Searching;
             attackCooldownTS = Time.time + attackCooldown;
         }
-        _state = State.Searching;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if(health <= 0) {
+            GameManager.instance.em.RemoveEnemy(this);
+            Destroy(this.gameObject);
+        }
     }
 }
