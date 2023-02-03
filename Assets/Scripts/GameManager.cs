@@ -19,9 +19,26 @@ public class GameManager : MonoBehaviour
             throw new Exception("Created another instance of singleton Game Manager");
     }
 
+
+
+    private bool Pause;
+    //getter setter for pause
+    public bool pause
+    {
+        get { return Pause; }
+        set { Pause = value; }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+        if (Pause)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
 }
