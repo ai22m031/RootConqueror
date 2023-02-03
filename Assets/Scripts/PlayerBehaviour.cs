@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerBehaviour : AlliedObjectBehaviour
 {
+
+    //load script into script
+    private PlayerAction pa = new PlayerAction();
+    private PlayerMovement pm = new PlayerMovement();
+
+    bool isPlanting=false;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +19,13 @@ public class PlayerBehaviour : AlliedObjectBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        isPlanting =  pa.PlantCheck();
+        if (!isPlanting)
+        {
+            pm.Move();
+        }
+
     }
 
     public override void TakeDamage(int damage)
@@ -22,4 +35,6 @@ public class PlayerBehaviour : AlliedObjectBehaviour
             Time.timeScale = 0f;
         }
     }
+
+
 }

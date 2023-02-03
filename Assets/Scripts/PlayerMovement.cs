@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public GameObject player;
-
     float horizontal;
     float vertical;
     
     Vector3 mousePosition;
+    private GameObject player;
 
     public float runSpeed = 20.0f;
 
-    // Update is called once per frame
-    void Update()
-    {
+    public void Move(){
+        // Get the input from the player
         // Gives a value between -1 and 1
+        player = GameManager.instance.lm._player;
+        
         horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
         vertical = Input.GetAxisRaw("Vertical"); // -1 is down
         
@@ -24,12 +24,8 @@ public class PlayerMovement : MonoBehaviour
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
-    }
 
-    private void FixedUpdate()
-    {
         // Move the player
-
         if (horizontal != 0 || vertical != 0){
             player.transform.position += new Vector3(horizontal, vertical, 0) * runSpeed * Time.deltaTime;
             mousePosition = player.transform.position;
@@ -37,10 +33,5 @@ public class PlayerMovement : MonoBehaviour
         else{
             player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(mousePosition.x, mousePosition.y, 0), runSpeed * Time.deltaTime);
         }
-    }
-
-    public Vector3 PlayerPosition()
-    {
-        return player.transform.position;
     }
 }
