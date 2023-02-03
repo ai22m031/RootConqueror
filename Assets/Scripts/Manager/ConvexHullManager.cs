@@ -48,7 +48,10 @@ public class ConvexHullManager : MonoBehaviour{
         }
         float rangeX = maxX - minX;
         float rangeY = maxY - minY;
+
         // Add points to mesh before generation so that the texture is applied correctly
+        // Create points in gridshape and check if they are inside the convex hull
+        // Add those points so that the tiling of the texture can be done
         for(int i = (int) minX + 1; i < maxX; i++) {
             for(int j = (int) minY + 1; j < maxY; j++) {
                 Vector2 toAdd = new Vector2(i, j);
