@@ -16,9 +16,9 @@ public class UIManager : MonoBehaviour
 
     //public Image UI
     public UnityEngine.UI.Image Healthbar;
-    
+    private PlayerAction player;
     //setter getter for Image.fillAmount
-    public float FillAmount
+    public float health
     {
         get { return Healthbar.fillAmount; }
         set { Healthbar.fillAmount = value; }
@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameManager.instance._player.GetComponent<PlayerAction>();
     }
 
     // Update is called once per frame
@@ -35,6 +35,7 @@ public class UIManager : MonoBehaviour
     {
         //Set TowerAmount to TowerManager AMount
         text_towerAmount.text = GameManager.instance.tm.TowerAmount.ToString();
+        health = (float)GameManager.instance._player.GetComponent<PlayerAction>().health / (float)GameManager.instance._player.GetComponent<PlayerAction>().maxHealth;
     }
 
     public void updateCurrentEnergy(int currentEnergy) {
