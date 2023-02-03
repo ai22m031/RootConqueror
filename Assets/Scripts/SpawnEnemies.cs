@@ -24,7 +24,7 @@ public class SpawnEnemies : MonoBehaviour
         if(Time.time > timeStamp) {
             Vector2 spawnPos = new Vector2(spawnCenter.x + spawnRadius * Mathf.Cos(currSpawnAngle), spawnCenter.y + spawnRadius * Mathf.Sin(currSpawnAngle));
             GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
-            currSpawnAngle += angle;
+            currSpawnAngle += angle * Random.Range(1f, 3f);
             timeStamp = Time.time + spawnRate;
         }
     }
