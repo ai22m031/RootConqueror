@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class TowerManager : MonoBehaviour
 {
-    bool towersEnabled { get; set; } = true;
+    public bool towersEnabled { get; set; } = true;
     // Start is called before the first frame update
 
     public List<TowerBehaviour> towers;
@@ -33,13 +33,14 @@ public class TowerManager : MonoBehaviour
     }
 
     public void AddTower(TowerBehaviour tower){
+        towerCost += tower.cost;
         towers.Add(tower);
         TowerAmount++;
-        towerCost += tower.cost;
+        RefreshTowers();
     }
     
     public void UpdateCosts() {
-        if(towerCost > GameManager.instance.resourceManager.countActiveResources()) {
+        if(towerCost > GameManager.instance.resourceManager.refreshActiveResources()) {
             towersEnabled = false;
         } else {
             towersEnabled = true;
@@ -66,13 +67,22 @@ public class TowerManager : MonoBehaviour
         return towers;
     }
 
+    public void RefreshTowers()
+    {
+        GameManager.instance.chm.CreateConvexHull();
+        UpdateCosts();
+    }
+
     internal void RemoveTower(TowerBehaviour tower)
     {
         towers.Remove(tower);
         TowerAmount--;
         towerCost -= tower.cost;
-        GameManager.instance.chm.CreateConvexHull();
-        GameManager.instance.resourceManager.countActiveResources();
-        GameManager.instance.tm.UpdateCosts();
+        RefreshTowers();
+    }
+
+    public bool CanPlaceTower(TowerBehaviour tower)
+    {
+        return towerCost + tower.cost <= GameManager.instance.resourceManager.refreshActiveResources();
     }
 }

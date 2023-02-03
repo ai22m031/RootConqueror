@@ -42,8 +42,13 @@ public class PlayerAction : AlliedObjectBehaviour{
                 _state = PlayerState.Moving;
             }
             if(_state == PlayerState.Moving && (Input.GetMouseButtonDown(1) || Input.GetButtonDown("Jump"))) {
-                _state = PlayerState.Planting;
-                plantTimeStamp = Time.time + plantCooldown;
+                if (GameManager.instance.tm.CanPlaceTower(GameManager.instance.tm.towerPrefab.GetComponent<TowerBehaviour>())) {
+                    _state = PlayerState.Planting;
+                    plantTimeStamp = Time.time + plantCooldown;
+                } else {
+                    // TODO: Play sound effect
+                    Debug.Log("Cannot place tower");
+                }
             }
         }
         if (_state == PlayerState.Moving)

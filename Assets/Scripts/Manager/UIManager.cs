@@ -42,6 +42,9 @@ public class UIManager : MonoBehaviour
     {
         //Set TowerAmount to TowerManager AMount
         text_towerAmount.text = GameManager.instance.tm.TowerAmount.ToString();
+        
+        updateCurrentEnergy(GameManager.instance.tm.TowerAmount);
+        updateMaxEnergy(GameManager.instance.resourceManager.resourceCount);
         health = (float)GameManager.instance._player.GetComponent<PlayerAction>().health / (float)GameManager.instance._player.GetComponent<PlayerAction>().maxHealth;
 
         //get enemies killed vom enemybehaviour script
@@ -66,11 +69,11 @@ public class UIManager : MonoBehaviour
 
     }
 
-    public void updateCurrentEnergy(int currentEnergy) {
+    private void updateCurrentEnergy(int currentEnergy) {
         text_currentEnergy.text = currentEnergy.ToString();
     }
 
-    public void updateMaxEnergy(int maxEnergy) {
+    private void updateMaxEnergy(int maxEnergy) {
         text_maxEnergy.text = maxEnergy.ToString();
     }
 }
