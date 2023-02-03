@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject _miniMapIcon;
     public GameObject player;
 
     float horizontal;
@@ -13,6 +15,10 @@ public class PlayerMovement : MonoBehaviour
 
     public float runSpeed = 20.0f;
 
+    void Start(){
+        Instantiate(_miniMapIcon, transform, true);
+    }
+    
     // Update is called once per frame
     void Update()
     {

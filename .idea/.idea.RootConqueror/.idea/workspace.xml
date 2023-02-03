@@ -2,18 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f43c9bc-a193-4a64-8606-e5d05211520e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RootConqueror/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RootConqueror/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RootConqueror/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RootConqueror/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/DummyTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/DummyTower.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DummyTower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DummyTower.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/master" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://S:/Projects/Unity/RootConqueror/Assets/Scripts/LogicManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MapManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://S:/Projects/Unity/RootConqueror/Assets/Scripts/LogicManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://S:/Projects/Unity/RootConqueror/Assets/Scripts/TowerManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DummyTower.cs" root0="FORCE_HIGHLIGHTING" />
@@ -23,7 +33,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/DummyTower.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ConvexHull.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ConvexHullNew.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/QuickHull2D.cs" />
@@ -36,6 +45,10 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/LogicManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ConvexHullManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/MapManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/DummyTower.cs" />
+      <option value="$PROJECT_DIR$/Assets/CameraManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="2LCFgovIvzpgHvjte61SWHWXmKu" />
@@ -63,10 +76,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="10100">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="10100" />
       <option name="selectedOptions">
         <list />
       </option>
