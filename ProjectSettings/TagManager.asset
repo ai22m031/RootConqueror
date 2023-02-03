@@ -17,8 +17,8 @@ TagManager:
   - Enemies
   - 
   - Bullets
-  - 
-  - 
+  - ConvexHull
+  - MiniMap
   - 
   - 
   - 
