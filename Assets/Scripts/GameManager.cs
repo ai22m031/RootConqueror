@@ -40,15 +40,5 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 1;
         }
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector3 mousePos = Input.mousePosition;
-            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-            mousePos.z = 0;
-            DummyTower dT = Instantiate(lm.tm.dummyTowerPrefab, lm.tm.transform, true);
-            dT.transform.position= mousePos;
-            lm.tm.AddTower(dT);
-            lm.chm.CreateConvexHull();
-        }
     }
 }
