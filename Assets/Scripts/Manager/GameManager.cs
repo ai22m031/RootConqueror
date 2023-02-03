@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
     public MusicManager mm;
     public UIManager uim;
     public ResourceManager resourceManager;
-
+    public PlayerAction Player;
+    
     // Start is called before the first frame update
     void Awake()
     {
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Time.timeScale = 1;
+
         }
     }
 }
