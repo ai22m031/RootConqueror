@@ -6,6 +6,7 @@ public class LogicManager : MonoBehaviour
 {
     public ConvexHullManager chm;
     public TowerManager tm;
+    public EnemyManager em;
     public GameObject _player;
     // Start is called before the first frame update
     void Start()

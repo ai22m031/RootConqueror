@@ -2,22 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerScript : MonoBehaviour
+public class PlayerBehaviour : AlliedObjectBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.health = 5;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
-    public void TakeDamage(int damage)
+    public override void TakeDamage(int damage)
     {
-        Debug.Log("Tower took " + damage + " damage");
+        health -= damage;
+        if(health <= 0) {
+            Time.timeScale = 0f;
+        }
     }
 }
