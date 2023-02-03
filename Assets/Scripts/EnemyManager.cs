@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,5 +19,10 @@ public class EnemyManager : MonoBehaviour
     public List<GameObject> GetEnemies()
     {
         return enemies;
+    }
+
+    internal void RemoveEnemy(EnemyBehaviour enemyBehaviour)
+    {
+        enemies.Remove(enemyBehaviour.gameObject);
     }
 }

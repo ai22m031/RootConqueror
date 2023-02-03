@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -52,5 +53,9 @@ public class TowerManager : MonoBehaviour
     public List<TowerBehaviour> GetTowers(){
         return towers;
     }
-    
+
+    internal void RemoveTower(TowerBehaviour tower)
+    {
+        towers.Remove(tower);
+    }
 }
