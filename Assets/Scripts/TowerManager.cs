@@ -20,6 +20,16 @@ public class TowerManager : MonoBehaviour{
         
     }
 
+    public GameObject [] getLocations() {
+        GameObject [] towers = GameObject.FindGameObjectsWithTag("Tower");
+        /*
+        List<Vector2> locations = new List<Vector2>();
+        foreach (GameObject tower in towers) {
+            locations.Add(tower.transform.position);
+        }*/
+        return towers;
+    }
+
     public void AddTower(DummyTower tower){
         towers.Add(tower);
     }

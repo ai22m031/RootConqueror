@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class LogicManager : MonoBehaviour
 {
-    
     public ConvexHullManager chm;
     public TowerManager tm;
+    public GameObject _player;
     // Start is called before the first frame update
-    void Start(){
+    void Start()
+    {
         
     }
 

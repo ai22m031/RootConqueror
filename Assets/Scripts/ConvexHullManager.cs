@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class ConvexHullManager : MonoBehaviour{
     public List<Mesh> meshes;
+    [SerializeField]
+    private List<Vector2> convexHullPoints;
     private MeshFilter _meshFilter;
     private MeshCollider _meshCollider;
     private GameManager gm;
-    private void Start()
-    {
+    private void Start(){
+        convexHullPoints = new List<Vector2>();
         meshes = new List<Mesh>();
         _meshFilter = GetComponent<MeshFilter>();
         _meshCollider = GetComponent<MeshCollider>();
@@ -17,8 +19,8 @@ public class ConvexHullManager : MonoBehaviour{
 
     
     public void CreateConvexHull(){
-        List<Vector2> convexHull = QuickHull.GetConvexHull(gm.lm.tm.GetVector2s());
-        Mesh convexHullMesh = CreateMeshFromPolygon(convexHull);
+        convexHullPoints = QuickHull.GetConvexHull(gm.lm.tm.GetVector2s());
+        Mesh convexHullMesh = CreateMeshFromPolygon(convexHullPoints);
         _meshFilter.mesh = convexHullMesh;
         meshes.Add(convexHullMesh);
     }
