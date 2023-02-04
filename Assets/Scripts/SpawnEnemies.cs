@@ -14,9 +14,11 @@ public class SpawnEnemies : MonoBehaviour
     float angle = 73f;
     float currSpawnAngle = 0f;
 
+    private GameManager gm;
+
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
+        gm = GameManager.instance;
         //spawnCenter = GameManager.instance._player.transform.position;
     }
 
@@ -24,6 +26,8 @@ public class SpawnEnemies : MonoBehaviour
     void Update()
     {
         if(Time.time > timeStamp) {
+            Bounds convexHullBounds = gm.cm.CalculateBounds(gm.tm.towers,false);
+            //Insert Logic to spawn Enemy outside of this bounds
             Vector2 spawnPos = new Vector2(spawnCenter.x + spawnRadius * Mathf.Cos(currSpawnAngle), spawnCenter.y + spawnRadius * Mathf.Sin(currSpawnAngle));
             GameObject enemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Count)], spawnPos, Quaternion.identity);
             //GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
