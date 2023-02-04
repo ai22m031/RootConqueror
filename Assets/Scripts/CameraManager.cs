@@ -37,7 +37,7 @@ public class CameraManager : MonoBehaviour{
 
     private void LateUpdate(){
 
-        //HandleMinimapCam();
+        HandleMinimapCam();
         
         if (_camMode == CamMode.CenterPlayer){
             Vector3 newCamPos = new Vector3(_player.transform.position.x, _player.transform.position.y, mainCam.transform.position.z);

@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f43c9bc-a193-4a64-8606-e5d05211520e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RootConqueror/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RootConqueror/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RootConqueror/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RootConqueror/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RootConqueror/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RootConqueror/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/ConvexHullManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/ConvexHullManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,9 +47,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/TowerBehaviour.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ResourceManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Manager/ConvexHullManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAction.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CameraManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Manager/ConvexHullManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="2LCFgovIvzpgHvjte61SWHWXmKu" />
@@ -99,7 +96,7 @@
       <option name="presentableId" value="Default" />
       <updated>1675367278427</updated>
       <workItem from="1675367292658" duration="10882000" />
-      <workItem from="1675499296954" duration="2254000" />
+      <workItem from="1675499296954" duration="3948000" />
     </task>
     <servers />
   </component>
