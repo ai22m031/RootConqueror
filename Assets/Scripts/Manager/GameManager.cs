@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public ConvexHullManager chm;
     public TowerManager tm;
     public EnemyManager em;
+    public CameraManager cm;
     [Header("Player")]
     public GameObject _player;
     public GameObject _StartObject;

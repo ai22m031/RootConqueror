@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -52,8 +53,7 @@ public class CameraManager : MonoBehaviour{
                 if (gm.chm.GetConvexHullCentroid() == null){
                     gm.chm.CreateConvexHull();
                 }
-                Bounds bounds = CalculateBounds(closestTowers);
-                bounds = AddPlayerBounds(bounds, _player.GetComponent<PlayerAction>());
+                Bounds bounds = CalculateBounds(closestTowers,true);
                 if (gm.chm.IsPointInsideConvexHull(_player.transform.position)){
                     Vector3 centroid = gm.chm.GetConvexHullCentroid().transform.position;
                     newCamPos = new Vector3(centroid.x,centroid.y, mainCam.transform.position.z);
@@ -145,7 +145,7 @@ public class CameraManager : MonoBehaviour{
     }
 
     
-    private Bounds CalculateBounds(List<GameObject> objectsInBounds)
+    public Bounds CalculateBounds(List<GameObject> objectsInBounds,bool includePlayer)
     {
         Bounds bounds = new Bounds(objectsInBounds[0].transform.position, Vector3.zero);
         foreach (GameObject sobject in objectsInBounds)
@@ -157,6 +157,10 @@ public class CameraManager : MonoBehaviour{
             Vector3 attackRadiusVector = new Vector3(attackRadius, attackRadius, 0);
             bounds.Encapsulate(renderer.bounds.center + attackRadiusVector);
             bounds.Encapsulate(renderer.bounds.center - attackRadiusVector);
+        }
+
+        if (includePlayer){
+            bounds = AddPlayerBounds(bounds,_player.GetComponent<PlayerAction>());
         }
         return bounds;
     }
@@ -212,8 +216,7 @@ public class CameraManager : MonoBehaviour{
         //List<DummyTower> closestTowers = GetClosestXTowersToPlayer(3);
         List<GameObject> closestTowers = gm.tm.towers;
         if (closestTowers.Count > 0){
-            Bounds bounds = CalculateBounds(closestTowers);
-            bounds = AddPlayerBounds(bounds, _player.GetComponent<PlayerAction>());
+            Bounds bounds = CalculateBounds(closestTowers,true);
            
             if (!IsWithinCameraView(miniMapCam,bounds))
             {
