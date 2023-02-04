@@ -57,7 +57,7 @@ public class UIManager : MonoBehaviour
         DateTime timestamp = GameManager.instance.totaltime;
         //calculate delta time from timestamp and current time
         //if player is not dead
-        if (player.health > 0)
+        if (GameManager.instance.gameRunning)
         {
             //set delta time to text
             int deltaTime = (int)(DateTime.Now - timestamp).TotalSeconds;

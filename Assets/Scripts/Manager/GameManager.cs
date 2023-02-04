@@ -19,6 +19,14 @@ public class GameManager : MonoBehaviour
     public GameObject _player;
     public GameObject _StartObject;
     private DateTime _totaltime;
+    private bool _gamerunning;
+
+    //getter setter for _gameRunning
+    public bool gameRunning
+    {
+        get { return _gamerunning; }
+        set { _gamerunning = value; }
+    }
     //getter setter for totaltime
     public DateTime totaltime
     {
@@ -40,6 +48,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         UnityEngine.Debug.Log("Player died");
+        gameRunning = false;
         uim.EndScreen.SetActive(true);
         Time.timeScale = 0;
 
@@ -49,6 +58,7 @@ public class GameManager : MonoBehaviour
     {
         
         totaltime = DateTime.Now;
+        gameRunning = true;
     }
 
 
