@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2f43c9bc-a193-4a64-8606-e5d05211520e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RootConqueror/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RootConqueror/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/ConvexHullManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/ConvexHullManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpawnEnemies.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SpawnEnemies.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,10 +45,11 @@
       <option value="$PROJECT_DIR$/Assets/CameraManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TowerBehaviour.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ResourceManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAction.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/CameraManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Manager/ConvexHullManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CameraManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SpawnEnemies.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="2LCFgovIvzpgHvjte61SWHWXmKu" />
