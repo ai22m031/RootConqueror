@@ -21,10 +21,13 @@ public class CameraManager : MonoBehaviour{
     [SerializeField]
     private Camera miniMapCam;
 
-    private float minFOV = 10f;
-    private float maxFOV = 40f;
+    [SerializeField]private float minFOV = 10f;
+    [SerializeField]private float maxFOV = 40f;
     [SerializeField]
     private float camModifcation = 0.2f;
+
+    [SerializeField] private float lerpSpeed = 0.2f;
+    [SerializeField] private float treshhold = 0.2f;
     
     public void Start(){
         mainCam = Camera.main;
@@ -34,7 +37,7 @@ public class CameraManager : MonoBehaviour{
 
     private void LateUpdate(){
 
-        HandleMinimapCam();
+        //HandleMinimapCam();
         
         if (_camMode == CamMode.CenterPlayer){
             Vector3 newCamPos = new Vector3(_player.transform.position.x, _player.transform.position.y, mainCam.transform.position.z);
@@ -60,39 +63,23 @@ public class CameraManager : MonoBehaviour{
                     Vector3 helpPos = (centroid + _player.transform.position) / 2;
                     newCamPos = new Vector3(helpPos.x, helpPos.y, mainCam.transform.position.z);
                 }
-                if (!IsWithinCameraView(mainCam,bounds))
-                {
+
+                //if (CalculateOrthographicSize(mainCam, bounds) + treshhold > mainCam.orthographicSize){ 
+                if (!IsWithinCameraView(mainCam,bounds)){
                     IncreaseOrthographicSize(mainCam);
                 }
                 else{
                     DecreaseOrthographicSize(mainCam);
                 }
             }
-            mainCam.transform.position = newCamPos;
+            mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, newCamPos, lerpSpeed/2 * Time.deltaTime);
         }else{
             mainCam.transform.position = miniMapCam.transform.position;
             mainCam.orthographicSize = 15;
         }
     }
 
-    void Test(){
-        //float size = 0f;
-        //Vector3 center = bounds.center;
-        //Vector3 extents = bounds.extents;
-        //Vector2 viewport = Camera.main.WorldToViewportPoint(new Vector3(center.x + extents.x, center.y + extents.y, center.z));
-        //if (viewport.x >= 0f && viewport.x <= 1f && viewport.y >= 0f && viewport.y <= 1f)
-        //{
-        //    Vector3 boundSize = bounds.size;
-        //    size = Mathf.Max(boundSize.x / GetComponent<Camera>().aspect, boundSize.y);
-        //}
-        //else
-        //{
-        //    Vector3 boundSize = bounds.size;
-        //    size = Mathf.Max(boundSize.x / GetComponent<Camera>().aspect, boundSize.y);
-        //    size /= 2f;
-        //}
-        //Camera.main.orthographicSize = Mathf.Clamp(size, minOrthographicSize, maxOrthographicSize);
-    }
+    
     
     public List<TowerBehaviour> GetClosestXTowersToPlayer(int x){
         List<TowerBehaviour> closestTowers = new List<TowerBehaviour>();
@@ -184,8 +171,7 @@ public class CameraManager : MonoBehaviour{
         return bounds;
     }
     
-    private bool IsWithinCameraView(Camera cam,Bounds bounds)
-    {
+    private bool IsWithinCameraView(Camera cam,Bounds bounds){
         Vector3 bottomLeft = cam.WorldToViewportPoint(bounds.min);
         Vector3 topRight = cam.WorldToViewportPoint(bounds.max);
         return bottomLeft.x >= 0 && bottomLeft.y >= 0 && topRight.x <= 1 && topRight.y <= 1;
@@ -193,25 +179,20 @@ public class CameraManager : MonoBehaviour{
 
     private void IncreaseOrthographicSize(Camera cam)
     {
-        if (cam.orthographicSize < maxFOV){
-            cam.orthographicSize+=camModifcation;
+        if (cam.orthographicSize-treshhold < maxFOV){
+            float targetOrthographicSize = cam.orthographicSize + camModifcation;
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetOrthographicSize, lerpSpeed * Time.deltaTime);
         }
     }
     
     private void DecreaseOrthographicSize(Camera cam)
     {
-        if (cam.orthographicSize > minFOV){
-            cam.orthographicSize-=camModifcation;
+        if (cam.orthographicSize+treshhold > minFOV){
+            float targetOrthographicSize = cam.orthographicSize - camModifcation;
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetOrthographicSize, lerpSpeed * Time.deltaTime);
         }
     }
-    
-    private float CalculateOrthoSize(Camera cam,Bounds bounds)
-    {
-        Vector3 topRight = new Vector3(bounds.max.x, bounds.max.y, bounds.center.z);
-        Vector3 topRightAsViewport = cam.WorldToViewportPoint(topRight);
-        float size = topRight.y - bounds.center.y;
-        return size;
-    }
+  
 
     void HandleMinimapCam(){
         if (gm.chm.GetConvexHullCentroid() != null){
@@ -232,7 +213,7 @@ public class CameraManager : MonoBehaviour{
         List<GameObject> closestTowers = gm.tm.towers;
         if (closestTowers.Count > 0){
             Bounds bounds = CalculateBounds(closestTowers);
-            //bounds = AddPlayerBounds(bounds, player.GetComponent<PlayerMovement>());
+            bounds = AddPlayerBounds(bounds, _player.GetComponent<PlayerAction>());
            
             if (!IsWithinCameraView(miniMapCam,bounds))
             {
@@ -247,7 +228,15 @@ public class CameraManager : MonoBehaviour{
         miniMapCam.transform.position = new Vector3(centroid.x, centroid.y, miniMapCam.transform.position.z);
     }
  
-    
+    private float CalculateOrthographicSize(Camera cam, Bounds bounds)
+    {
+        Vector3 bottomLeft = cam.WorldToScreenPoint(bounds.min);
+        Vector3 topRight = cam.WorldToScreenPoint(bounds.max);
+        float sizeX = topRight.x - bottomLeft.x;
+        float sizeY = topRight.y - bottomLeft.y;
+        float size = Mathf.Max(sizeX, sizeY) * 0.5f / Screen.dpi * 0.0254f;
+        return size / 2f;
+    }
     
     
 }
