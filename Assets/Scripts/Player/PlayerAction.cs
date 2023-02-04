@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using Debug = UnityEngine.Debug;
 
 public class PlayerAction : AlliedObjectBehaviour{
     private SpriteRenderer sr;
@@ -100,9 +102,18 @@ public class PlayerAction : AlliedObjectBehaviour{
         horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
         vertical = Input.GetAxisRaw("Vertical"); // -1 is down
 
-        if (Input.GetMouseButton(0))
-        {
-            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (Input.GetMouseButton(0)){
+            if (!EventSystem.current.IsPointerOverGameObject()) {
+                mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); // get the ray from the main camera
+                RaycastHit hit;
+                int layerMask = 1 << LayerMask.NameToLayer("Map");
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask)) // perform the raycast and check if it hit a collider
+                {
+                    mousePosition = hit.point; // get the position of the raycast hit
+                    Debug.Log("hit to " + mousePosition);
+                }
+            }
         }
 
         // Move the player

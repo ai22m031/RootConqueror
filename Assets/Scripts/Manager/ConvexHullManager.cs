@@ -8,18 +8,33 @@ public class ConvexHullManager : MonoBehaviour{
     [SerializeField]
     private List<Vector2> convexHullPoints;
 
+    private MeshRenderer _meshRenderer;
+
     private MeshFilter _meshFilter;
     private PolygonCollider2D _polygonCollider;
     private GameManager gm;
     private GameObject centroid;
     [SerializeField] private GameObject _prefabCentroid;
     [SerializeField] private GameObject player;
+    [SerializeField] private Texture _texture;
+    [SerializeField] private Sprite _rootSprite;
+    [SerializeField] private Material _rootMaterial;
+    [SerializeField] private Vector2 repeatmat = new Vector2(2, 2);
+    
     private void Start(){
         convexHullPoints = new List<Vector2>();
         meshes = new List<Mesh>();
         _meshFilter = GetComponent<MeshFilter>();
         _polygonCollider = GetComponent<PolygonCollider2D>();
+        _meshRenderer = GetComponent<MeshRenderer>();
         gm = GameManager.instance;
+       // Material material = new Material(Shader.Find("Unlit/Transparent"));
+       // material.mainTexture = _rootSprite.texture;
+       //material.mainTextureScale = new Vector2(10, 10);
+       _rootMaterial.mainTextureOffset = Vector2.zero;
+       _rootMaterial.mainTextureScale = Vector2.one;
+       _meshRenderer.material = _rootMaterial;
+
     }
     void Update()
     {
@@ -68,8 +83,24 @@ public class ConvexHullManager : MonoBehaviour{
         });
         
         convexHullPoints = QuickHull.GetConvexHull(vec2);
-        Mesh convexHullMesh = CreateMeshFromPolygon(convexHullPoints);
+        Mesh convexHullMesh = CreateMeshFromPolygon2(convexHullPoints);
         _meshFilter.mesh = convexHullMesh;
+        Material material = new Material(Shader.Find("Unlit/Texture"));
+        
+        Texture2D _tex = _rootSprite.texture;
+
+        // Assign the sprite's pixels to the texture
+        //Rect spriteRect = _rootSprite.textureRect;
+        //_tex.SetPixels((int)spriteRect.x, (int)spriteRect.y, (int)spriteRect.width, (int)spriteRect.height, _rootSprite.texture.GetPixels((int)spriteRect.x, (int)spriteRect.y, (int)spriteRect.width, (int)spriteRect.height));
+        //_meshRenderer.material.mainTexture = _tex;
+// Apply changes to the texture
+        //_tex.Apply();
+        
+        //material.mainTexture = _tex;
+        //material.mainTextureScale = new Vector2(10, 10);
+        //_meshRenderer.material = material;
+        
+        
         meshes.Add(convexHullMesh);
     
         if (convexHullPoints.Count > 2) {
@@ -145,6 +176,66 @@ public class ConvexHullManager : MonoBehaviour{
         
         return mesh;
     }
+    
+    private Mesh CreateMeshFromPolygonAlex(List<Vector2> points)
+    {
+        Mesh mesh = new Mesh();
+
+        Vector3[] vertices = new Vector3[points.Count];
+        Vector2[] uvs = new Vector2[points.Count];
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            vertices[i] = new Vector3(points[i].x, points[i].y);
+            uvs[i] = new Vector2((points[i].x % 1f), (points[i].y % 1f));
+        }
+
+        List<int> triangles = new List<int>();
+        for (int i = 0; i < vertices.Length - 2; i++)
+        {
+            triangles.Add(0);
+            triangles.Add(i + 1);
+            triangles.Add(i + 2);
+        }
+
+        mesh.vertices = vertices;
+        mesh.triangles = triangles.ToArray();
+        mesh.uv = uvs;
+
+        return mesh;
+    }
+    
+    private Mesh CreateMeshFromPolygon2(List<Vector2> points)
+    {
+        Mesh mesh = new Mesh();
+
+        Vector3[] vertices = new Vector3[points.Count];
+        Vector2[] uvs = new Vector2[points.Count];
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            vertices[i] = new Vector3(points[i].x, points[i].y);
+            // Calculate the UV coordinate based on the position of the vertex
+            // This will ensure that the texture repeats along the length of the mesh
+            uvs[i] = new Vector2((vertices[i].x % 1f), (vertices[i].y % 1f));
+        }
+
+        List<int> triangles = new List<int>();
+        for (int i = 0; i < vertices.Length - 2; i++)
+        {
+            triangles.Add(0);
+            triangles.Add(i + 1);
+            triangles.Add(i + 2);
+        }
+
+        mesh.vertices = vertices;
+        mesh.triangles = triangles.ToArray();
+        mesh.uv = uvs;
+
+        CalculateCentroid(vertices);
+
+        return mesh;
+    }
+
+    
 
     public bool IsPointInsideConvexHull(Vector2 point)
     {
@@ -188,7 +279,6 @@ public class ConvexHullManager : MonoBehaviour{
             Destroy(centroid);
         }
 
-        if (x == float.NaN || y == float.NaN) return;
         centroid = Instantiate(_prefabCentroid, transform, true);
         centroid.transform.position = new Vector3(x, y,0);
     }

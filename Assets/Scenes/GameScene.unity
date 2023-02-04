@@ -5720,8 +5720,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5767,6 +5766,10 @@ MonoBehaviour:
   convexHullPoints: []
   _prefabCentroid: {fileID: 3795726753264396271, guid: 6330150c2f1172f4fbd1d2807621751e, type: 3}
   player: {fileID: 428056478}
+  _texture: {fileID: 0}
+  _rootSprite: {fileID: 21300000, guid: 65f0e363b74cf5845ab8c3fbc14f39ac, type: 3}
+  _rootMaterial: {fileID: 2100000, guid: a7288d71ef561134b987138445bcf04c, type: 2}
+  repeatmat: {x: 2, y: 2}
 --- !u!60 &510141715
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -18472,7 +18475,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1016752152}
   - component: {fileID: 1016752153}
-  m_Layer: 0
+  - component: {fileID: 1016752154}
+  m_Layer: 7
   m_Name: Tile_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18546,6 +18550,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &1016752154
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016752151}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 299.99997, y: 299.99997, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1017728399
 GameObject:
   m_ObjectHideFlags: 0
@@ -26679,7 +26696,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1668730498
 Transform:
   m_ObjectHideFlags: 0
@@ -38405,7 +38422,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2139479142
 Transform:
   m_ObjectHideFlags: 0
@@ -38575,7 +38592,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 887
+    m_Bits: 1015
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
