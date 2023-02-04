@@ -20,7 +20,6 @@ public class PlayerAction : AlliedObjectBehaviour{
     private PlayerAction Player;
     public ParticleSystem LifeAdd;
     public ParticleSystem Planting;
-    public ParticleSystem Finisher;
 
     public enum PlayerState
     {
@@ -44,7 +43,6 @@ public class PlayerAction : AlliedObjectBehaviour{
     {
         if(Time.time >= plantTimeStamp) {
             if(_state == PlayerState.Planting) {
-                Finisher.Play();
                 Instantiate(GameManager.instance.tm.towerPrefab, transform.position, Quaternion.identity);
                 _state = PlayerState.Moving;
                 Planting.Stop();
