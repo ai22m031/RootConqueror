@@ -17,6 +17,9 @@ public class PlayerAction : AlliedObjectBehaviour{
     //load script into script
     private PlayerAction Player;
     public ParticleSystem LifeAdd;
+    public ParticleSystem Planting;
+    public ParticleSystem Finisher;
+
     public enum PlayerState
     {
         Moving,
@@ -39,12 +42,15 @@ public class PlayerAction : AlliedObjectBehaviour{
     {
         if(Time.time >= plantTimeStamp) {
             if(_state == PlayerState.Planting) {
+                Finisher.Play();
                 Instantiate(GameManager.instance.tm.towerPrefab, transform.position, Quaternion.identity);
                 _state = PlayerState.Moving;
+                Planting.Stop();
                 UnityEngine.Debug.Log("Planted tower");
             }
             if (_state == PlayerState.Moving && (Input.GetMouseButtonDown(1) || Input.GetButtonDown("Jump"))) {
                 if (GameManager.instance.tm.CanPlaceTower(GameManager.instance.tm.towerPrefab)) {
+                    Planting.Play();
                     _state = PlayerState.Planting;
                     plantTimeStamp = Time.time + plantCooldown;
                 } else {
